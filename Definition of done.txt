@@ -1,6 +1,6 @@
 Definition of Done:
--	Scrum Board is updated with at least 1 other person reviewing the change.
+-	Code commented and code review.
 -	Browser/device compatibility tested, to ensure it will work on a variety of machines and web browsers.
--	Code submitted is robust; has been stress tested, bug tested and can handle exceptions.
+-	Code has been bug tested and can handle exceptions.
 -	Code accurately represents the user story or meets the acceptance criteria.
 -	All documentation updated.
