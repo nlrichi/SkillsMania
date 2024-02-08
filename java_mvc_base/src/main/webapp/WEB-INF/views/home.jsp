@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<h1>Start of something</h1>
+<h1>Spring Security with OAuth 2.0</h1>
+<a href="securedPage">Login</a>
 </body>
 </html>
