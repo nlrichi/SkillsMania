@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Objects;
+
 @Controller
 public class LeagueTableController {
     @Autowired
@@ -22,7 +24,8 @@ public class LeagueTableController {
 
     @RequestMapping("/leaderboard")
     public String viewLeagueTable(Model model, OAuth2AuthenticationToken token){
-        User current_user = userRepo.findUserByName(token.getPrincipal().getName());
+        User current_user = userRepo.findUserByUsername(token.getPrincipal().getName());
+
         model.addAttribute("league", current_user.getLeague());
         return "leagueTable";
     }

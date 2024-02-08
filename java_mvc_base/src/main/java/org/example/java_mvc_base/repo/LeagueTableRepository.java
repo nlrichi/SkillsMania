@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface LeagueTableRepository extends CrudRepository<LeagueTable, Integer> {
 
-    public LeagueTable findByLeague_id(int id);
+    public LeagueTable findByLeagueId(int id);
 }

@@ -2,7 +2,6 @@ package org.example.java_mvc_base.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.Objects;
 public class LeagueTable {
 
     @Id
-    private int league_id;
+    private int leagueId;
 
     private String tier_name;
 
@@ -28,12 +27,12 @@ public class LeagueTable {
         this.tier_name = tier_name;
     }
 
-    public int getLeague_id() {
-        return league_id;
+    public int getLeagueId() {
+        return leagueId;
     }
 
-    public void setLeague_id(int league_id) {
-        this.league_id = league_id;
+    public void setLeagueId(int league_id) {
+        this.leagueId = league_id;
     }
 
     public List<User> getMembers() {

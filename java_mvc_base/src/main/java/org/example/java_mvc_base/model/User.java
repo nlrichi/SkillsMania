@@ -12,7 +12,7 @@ public class User {
     @ManyToOne
     private LeagueTable league;
 
-
+    private int currentStreak;
 
     public LeagueTable getLeague() {
         return league;
