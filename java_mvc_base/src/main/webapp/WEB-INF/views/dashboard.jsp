@@ -44,9 +44,12 @@
             cursor: pointer;
         }
 
-        #courses {
-            position: fixed;
+        #courses table{
+            border: #555555 1px solid;
+        }
 
+        #courses td {
+            padding: 10px 10px 10px;
         }
 
     </style>
