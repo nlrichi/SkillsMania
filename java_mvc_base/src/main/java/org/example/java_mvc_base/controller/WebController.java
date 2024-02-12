@@ -30,6 +30,8 @@ public class WebController {
         model.addAttribute("details", token.getPrincipal().getAttributes());
         model.addAttribute("principal_given_name",
                 token.getPrincipal().getAttributes().get("given_name"));
+        model.addAttribute("principal_email",
+                token.getPrincipal().getAttributes().get("preferred_username"));
         return "profile";
     }
 
