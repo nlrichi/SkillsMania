@@ -23,12 +23,17 @@
                 height: 600px;
                 width: 100%;
                 text-align: center;
+                outline-color: green;
+                outline-width: medium;
+                border: 6px solid;
+                border-collapse: collapse;
             }
             td{
                 background-color:rgba(97, 173, 90, 0.192);
                 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 font-size: large;
                 text-align: center;
+
             }
             td:hover{
 
@@ -41,7 +46,7 @@
     <body>
         <div class="bg_image">
             <h1>${league.tierName} league: ${league.daysLeft} days remaining</h1>
-            <table class="table">
+            <table>
                 <!-- The PDP table consisting of 6 rows and 2 columns -->
                 <tr>
                     <th>Position</th>

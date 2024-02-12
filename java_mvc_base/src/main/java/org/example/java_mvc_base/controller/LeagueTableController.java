@@ -25,7 +25,7 @@ public class LeagueTableController {
 
     @RequestMapping("/leaderboard")
     public String viewLeagueTable(Model model, OAuth2AuthenticationToken token){
-        String fetched_name = token.getPrincipal().getName();
+        String fetched_name = (String) token.getPrincipal().getAttributes().get("given_name");
         User current_user = userRepo.findUserByUsername(fetched_name);
         if (Objects.isNull(current_user)){
             current_user = new User();
