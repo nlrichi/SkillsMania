@@ -1,6 +1,7 @@
 package org.example.java_mvc_base.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
@@ -12,17 +13,20 @@ import java.util.Objects;
 @Entity
 public class LeagueTable {
 
+    @GeneratedValue
     @Id
     private int leagueId;
 
-    private String tier_name;
+    private String tierName; //Tiers -> "Kings Intelligence", "Artificial champions", "Bronze"
 
     private LocalDate LastCheckedDate = LocalDate.now();
 
     @OneToMany
     private List<User> members;
 
-    private int days_left = 7;
+    private int daysLeft = 7;
+
+    private int membersCount;
 
 
     public LeagueTable() {
@@ -37,20 +41,20 @@ public class LeagueTable {
         LastCheckedDate = LocalDate.now();
     }
 
-    public String getTier_name() {
-        return tier_name;
+    public String getTierName() {
+        return tierName;
     }
 
-    public void setTier_name(String tier_name) {
-        this.tier_name = tier_name;
+    public void setTierName(String tier_name) {
+        this.tierName = tier_name;
     }
 
-    public int getDays_left() {
-        return days_left;
+    public int getDaysLeft() {
+        return daysLeft;
     }
 
-    public void setDays_left(int days_left) {
-        this.days_left = days_left;
+    public void setDaysLeft(int days_left) {
+        this.daysLeft = days_left;
     }
 
     public int getLeagueId() {
@@ -68,9 +72,13 @@ public class LeagueTable {
         return members;
     }
 
+    public int getMembersCount() {
+        return membersCount;
+    }
 
     public void setMembers(List<User> members) {
         this.members = members;
+        this.membersCount = members.size();
     }
 }
 

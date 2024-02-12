@@ -16,6 +16,8 @@ public class JavaMvcBaseApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(JavaMvcBaseApplication.class, args);
+		leagueUpdateThread = new LeagueUpdateThread();
+		leagueUpdateThread.run();
 	}
 
 }
