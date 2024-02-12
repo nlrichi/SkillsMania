@@ -30,6 +30,24 @@ public class JavaMvcBaseApplication {
 				avatar.setDescription("Description for Avatar 1");
 				avatarRepository.save(avatar);
 			}
+
+			if (!avatarRepository.existsById(2L)) {
+				Avatar avatar2 = new Avatar();
+				avatar2.setId(2L);
+				avatar2.setImage("/images/Avatar2.png");
+				avatar2.setName("Avatar 2");
+				avatar2.setDescription("Description for Avatar 2");
+				avatarRepository.save(avatar2);
+			}
+
+			if (!avatarRepository.existsById(3L)) {
+				Avatar avatar3 = new Avatar();
+				avatar3.setId(3L);
+				avatar3.setImage("/images/Avatar3.png");
+				avatar3.setName("Avatar 3");
+				avatar3.setDescription("Description for Avatar 3");
+				avatarRepository.save(avatar3);
+			}
 		};
 	}
 }
