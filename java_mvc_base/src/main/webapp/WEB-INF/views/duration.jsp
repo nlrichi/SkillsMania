@@ -2,10 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Start Course</title>
+    <title>Course Result</title>
 </head>
 <body>
-<h2>Start Course</h2>
-<a href="/start-course?courseId=123">Start Course 123</a> </body>
+<h2>Course Result</h2>
+<p>Course duration: ${duration} milliseconds</p> </body>
 </html>
-

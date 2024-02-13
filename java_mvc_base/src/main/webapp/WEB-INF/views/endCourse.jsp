@@ -1,31 +1,13 @@
-<!-- start-tracking.jsp -->
-
-<%@ page import="java.time.Instant" %>
-<%@ page import="org.example.java_mvc_base.controller.DurationController" %>
-
-
-<%
-    DurationController controller = new DurationController();
-%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
+<head>
+    <title>End Course</title>
+</head>
 <body>
-<form method="post">
-    <input type="hidden" name="action" value="end">
-
-    <button type="submit">End</button>
+<h2>End Course</h2>
+<form action="/end-course">
+    <button type="submit">End Course</button>
 </form>
-
-<% if (request.getParameter("action") != null &&
-        request.getParameter("action").equals("end")) {
-
-    // Save start time
-    Instant startTime = Instant.now();
-    controller.saveStartTime(startTime);
-    // Redirect to external course URL
-    response.sendRedirect(courseUrl);
-
-} %>
-
 </body>
 </html>
