@@ -1,9 +1,7 @@
 package org.example.java_mvc_base.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class User {
@@ -11,6 +9,11 @@ public class User {
     private String username;
 //    @ManyToOne
 //    private LeagueTable league;
+
+    @OneToOne
+    @JoinColumn(name = "avatar_id") // This creates a column in the User table for the Avatar ID.
+    private Avatar avatar;
+
 
     private int currentStreak;
 
@@ -47,4 +50,13 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public Avatar getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
+    }
+
 }

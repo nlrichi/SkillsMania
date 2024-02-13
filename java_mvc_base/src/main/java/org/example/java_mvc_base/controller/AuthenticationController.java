@@ -18,18 +18,33 @@ public class AuthenticationController {
     UserRepository u_repo;
 
 
+//    @RequestMapping("/authorization-code/callback")
+//    public String redirectLogin(OAuth2AuthenticationToken token){
+//        String name = (String) token.getPrincipal().getAttributes().get("given_name");
+//        User logged_in_user = u_repo.findUserByUsername(name);
+//        if (Objects.isNull(logged_in_user)){
+//            User new_user = new User();
+//            new_user.setUsername(name);
+//
+//
+//        }
+//        return "redirect:/feed";
+//    }
+
     @RequestMapping("/authorization-code/callback")
     public String redirectLogin(OAuth2AuthenticationToken token){
-        String name = (String) token.getPrincipal().getAttributes().get("given_name");
-        User logged_in_user = u_repo.findUserByUsername(name);
-        if (Objects.isNull(logged_in_user)){
-            User new_user = new User();
-            new_user.setUsername(name);
-
-
+        String username = (String) token.getPrincipal().getAttributes().get("given_name");
+        User currentUser = u_repo.findUserByUsername(username);
+        if (Objects.isNull(currentUser)){
+            User newUser = new User();
+            newUser.setUsername(username);
+            // Set any default or fetched values for the new user
+            u_repo.save(newUser);
+            // Optionally set the newUser as the currentUser in the session or security context here
         }
         return "redirect:/feed";
     }
+
 
 
 }

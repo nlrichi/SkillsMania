@@ -12,8 +12,8 @@ public class Avatar {
     private String name;
     private String description;
 
-//    @OneToOne(mappedBy = "avatar")
-//    private User user;
+    @OneToOne(mappedBy = "avatar")
+    private User user;
 
     // Constructors, getters, and setters
     public Avatar() {}
@@ -57,11 +57,11 @@ public class Avatar {
         this.description = description;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

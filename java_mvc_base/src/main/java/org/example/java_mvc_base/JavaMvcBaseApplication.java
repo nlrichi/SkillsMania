@@ -26,8 +26,8 @@ public class JavaMvcBaseApplication {
 				Avatar avatar = new Avatar();
 				avatar.setId(1L);
 				avatar.setImage("/images/Avatar1.png");
-				avatar.setName("Avatar 1");
-				avatar.setDescription("Description for Avatar 1");
+				avatar.setName("Avatar");
+				avatar.setDescription("Basic Avatar");
 				avatarRepository.save(avatar);
 			}
 
@@ -35,8 +35,8 @@ public class JavaMvcBaseApplication {
 				Avatar avatar2 = new Avatar();
 				avatar2.setId(2L);
 				avatar2.setImage("/images/Avatar2.png");
-				avatar2.setName("Avatar 2");
-				avatar2.setDescription("Description for Avatar 2");
+				avatar2.setName("Man");
+				avatar2.setDescription("Basic Male");
 				avatarRepository.save(avatar2);
 			}
 
@@ -44,8 +44,8 @@ public class JavaMvcBaseApplication {
 				Avatar avatar3 = new Avatar();
 				avatar3.setId(3L);
 				avatar3.setImage("/images/Avatar3.png");
-				avatar3.setName("Avatar 3");
-				avatar3.setDescription("Description for Avatar 3");
+				avatar3.setName("Woman");
+				avatar3.setDescription("Basic Female");
 				avatarRepository.save(avatar3);
 			}
 		};
