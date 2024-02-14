@@ -1,6 +1,20 @@
-Software Engineering Project : Group 16 
+**Software Engineering Project : Group 16 **
 
-Meeting 1
+**What did everyone do in Sprint 1? Write below next to your name :**
+Raza Kalid : 
+
+
+
+**Checklist for Sprint 1**
+1. DoD done for all user stories and comments made for each one
+2. Tasks what everyone done above updated
+3. Screenshots of scrum board
+4. Everyone needs to make at least 4 code commits
+5. Update the user manual (documentation) for each feature
+6. Pre-record demo as agroup and submit to blackboard!
+7. Make sure that all user stories are moved across the scrum board when needed
+
+`Meeting 1`
 
 18/01/2024
 3-4PM. David Wilson Library.
@@ -55,7 +69,7 @@ Print Name: Hammed Agboluaje Signature:
 Print Name: Marcel Beya-Wa-Beya Signature: Marcel Beya-Wa-Beya
 Print Name: Raza Khalid -  Signature: RazaK
 
-Meeting 2
+`Meeting 2`
 
 22/01/2024
 2-3PM. David Wilson Library.
@@ -124,7 +138,7 @@ Definition of Done:
 
 
 
-Meeting 3 (With supervisor)
+~~Meeting 3 (With supervisor)~~
 
 31/01/2024
 11-1PM. PGB.01-02.
@@ -143,7 +157,7 @@ ERM diagram link: https://drive.google.com/file/d/1yPgZ55j-vAlCmwf17IeBybqLL8gZI
 
 
 
-Meeting - 05/02/2024
+~~Meeting - 05/02/2024~~
 2-3PM. Lance, Ree not present. (Lance ill)
 
 Ree was scrum master last week.
