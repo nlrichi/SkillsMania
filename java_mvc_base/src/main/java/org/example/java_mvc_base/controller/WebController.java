@@ -23,16 +23,16 @@ public class WebController {
     @RequestMapping("/feed")
     public String feed(){return "feed";}
 
-    @GetMapping("/profile")
+    @GetMapping("/dashboard")
     @PreAuthorize("hasAuthority('SCOPE_profile')")
     public String userDetails(Model model, OAuth2AuthenticationToken token) {
         model.addAttribute("username", token.getPrincipal().getName());
         model.addAttribute("details", token.getPrincipal().getAttributes());
-        model.addAttribute("principal_given_name",
+        model.addAttribute("principal_username",
                 token.getPrincipal().getAttributes().get("given_name"));
         model.addAttribute("principal_email",
                 token.getPrincipal().getAttributes().get("preferred_username"));
-        return "profile";
+        return "dashboard";
     }
 
 }

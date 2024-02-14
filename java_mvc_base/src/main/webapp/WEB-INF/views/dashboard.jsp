@@ -112,6 +112,8 @@
         <div>
             <li>Home</li>
             <li>Dashboard</li>
+            <!--username display below-->
+            <li>Hello, <strong>${principal_username}</strong></li>
         </div>
     </ul>
 </div>

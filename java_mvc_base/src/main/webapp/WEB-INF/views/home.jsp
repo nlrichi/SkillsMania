@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<h1>Spring Security with OAuth 2.0</h1>
+<img src="SkillsMania Logo BIG.png" alt="SkillsMania Logo">
+<h2>Welcome to SkillsMania, Please login using the link below :</h2>
 <a href="securedPage">Login</a>
 </body>
 </html>
