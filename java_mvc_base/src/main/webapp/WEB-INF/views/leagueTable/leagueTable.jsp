@@ -1,68 +1,34 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+
 <!DOCTYPE html>
 <html>
+<base href="${pageContext.request.contextPath}">
     <head title="League">
-        <!-- <link rel="stylesheet" href=".leagueTable.css"> -->
-        <style>
-            .bg_image2{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                background-image: url('bg2.jpeg');
-                background-size: cover;
-                background-repeat: no-repeat;
-                height: 100%;
-                border-width: 5px;
-                width: 1420px;
-                flex: 1;
-            }
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/leagueTable.css">
 
-
-            table{
-                height: 600px;
-                width: 100%;
-                text-align: center;
-                outline-color: green;
-                outline-width: medium;
-                border: 6px solid;
-                border-collapse: collapse;
-            }
-            td{
-                background-color:rgba(97, 173, 90, 0.192);
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                font-size: large;
-                text-align: center;
-
-            }
-            td:hover{
-
-                background-color: rgba(8, 66, 1, 0.652);
-                color: rgb(0, 255, 89);
-            }
-
-        </style>
     </head>
     <body>
-        <div class="bg_image">
-            <h1>${league.tierName} league: ${league.daysLeft} days remaining</h1>
-            <table>
+        <div class="bg_image2">
+            <h1 class="header">${league.tierName} league: ${league.daysLeft} days remaining</h1>
+            <div class="pseudo_table">
                 <!-- The PDP table consisting of 6 rows and 2 columns -->
-                <tr>
-                    <th>Position</th>
-                    <th>Name</th>
-                </tr>
+                <div class="table_header">
+                    <a class="avatar">Avatar</a>
+                    <a class="header_names">Name</a>
+                    <a class="header_names">XP for the time</a>
+                </div>
                 <c:forEach var="member" items="${league.members}">
-                    <tr>
-                        <td>${member.username}</td>
-                        <td>
-                                ${member.overallXp} XP
-                        </td>
-                    </tr>
+                    <div class="user_model">
+                        <img class="user_model_image" src="https://via.placeholder.com/150">
+                        <a class="user_model_name">${member.username}</a>
+                        <a class="user_model_xp">
+                                ${member.overallXp} xp
+                        </a>
+                    </div>
 
                 </c:forEach>
 
-            </table>
+            </div>
         </div>
 
     </body>

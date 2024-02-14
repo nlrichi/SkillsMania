@@ -11,13 +11,13 @@ public class JavaMvcBaseApplication {
 	@Autowired
 	LeagueTableRepository league_repo;
 
+
 	static LeagueUpdateThread leagueUpdateThread;
 
 	public static void main(String[] args) {
 
 		SpringApplication.run(JavaMvcBaseApplication.class, args);
-		leagueUpdateThread = new LeagueUpdateThread();
-		leagueUpdateThread.run();
+
 	}
 
 }

@@ -2,17 +2,26 @@ package org.example.java_mvc_base.model;
 
 import org.example.java_mvc_base.repo.LeagueTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-@Service
+@Component
 public class LeagueUpdateThread extends Thread {
-    @Autowired
-    LeagueTableRepository l_repo;
+
+
+    private LeagueTableRepository l_repo;
     private boolean running = false;
 
+    @Autowired
+    public LeagueUpdateThread(LeagueTableRepository repo){
+        l_repo = repo;
+    }
+
+
+    @Override
     public void run(){
         while (running) {
             for (LeagueTable league : l_repo.findAll()) {
@@ -20,8 +29,9 @@ public class LeagueUpdateThread extends Thread {
                 league.setLastCheckedDate();
                 l_repo.save(league);
             }
+            System.out.println("SLEEPING AFTER CHECKING");
             try {
-                sleep(60000);
+                sleep(10000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
