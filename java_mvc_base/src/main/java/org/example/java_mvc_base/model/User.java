@@ -13,8 +13,6 @@ public class User {
     private String email;
     @Column(unique = true)
     private String username;
-    @ManyToOne
-    private LeagueTable league;
     private int currentStreak;
     private int overallXp;
     private int avatar;
@@ -34,14 +32,6 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public LeagueTable getLeague() {
-        return league;
-    }
-
-    public void setLeague(LeagueTable league) {
-        this.league = league;
     }
 
     public int getCurrentStreak() {
