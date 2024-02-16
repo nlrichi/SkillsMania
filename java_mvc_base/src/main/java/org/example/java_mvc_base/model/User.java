@@ -16,6 +16,14 @@ public class User {
 
     private int overallXp;
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public LeagueTable getLeague() {
         return league;
     }
@@ -38,13 +46,5 @@ public class User {
 
     public void setOverallXp(int overallXp) {
         this.overallXp = overallXp;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 }
