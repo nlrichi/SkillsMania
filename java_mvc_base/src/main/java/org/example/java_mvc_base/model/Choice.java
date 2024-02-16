@@ -3,22 +3,22 @@ package org.example.java_mvc_base.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Option {
+public class Choice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int optionId;
+    private int choiceId;
     @ManyToOne
     @JoinColumn(name = "question_id")
     private Question question;
-    private String optionText;
+    private String choiceText;
     private boolean isTrue;
 
-    public int getOptionId() {
-        return optionId;
+    public int getChoiceId() {
+        return choiceId;
     }
 
-    public void setOptionId(int optionId) {
-        this.optionId = optionId;
+    public void setChoiceId(int choiceId) {
+        this.choiceId = choiceId;
     }
 
     public Question getQuestion() {
@@ -29,12 +29,12 @@ public class Option {
         this.question = question;
     }
 
-    public String getOptionText() {
-        return optionText;
+    public String getChoiceText() {
+        return choiceText;
     }
 
-    public void setOptionText(String optionText) {
-        this.optionText = optionText;
+    public void setChoiceText(String choiceText) {
+        this.choiceText = choiceText;
     }
 
     public boolean isTrue() {

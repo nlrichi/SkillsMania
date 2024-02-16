@@ -9,23 +9,13 @@ import java.sql.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
-    private String email;
+    private int userId;
     @Column(unique = true)
     private String username;
     private int currentStreak;
     private int overallXp;
     private int avatar;
     private Date lastLoggedIn;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getUsername() {
         return username;
     }

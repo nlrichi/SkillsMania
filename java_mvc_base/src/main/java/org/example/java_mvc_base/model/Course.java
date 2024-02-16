@@ -5,15 +5,15 @@ import jakarta.persistence.*;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int courseID;
+    private int courseId;
     private String courseName;
 
-    public int getCourseID() {
-        return courseID;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourseID(int courseID) {
-        this.courseID = courseID;
+    public void setCourseId(int courseID) {
+        this.courseId = courseID;
     }
 
     public String getCourseName() {
