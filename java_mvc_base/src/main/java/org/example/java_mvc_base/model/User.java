@@ -1,20 +1,32 @@
 package org.example.java_mvc_base.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.sql.Date;
 
 @Entity
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int Id;
+    private String email;
+    @Column(unique = true)
     private String username;
     @ManyToOne
     private LeagueTable league;
-
     private int currentStreak;
-
     private int overallXp;
+    private int avatar;
+    private Date lastLoggedIn;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getUsername() {
         return username;
@@ -46,5 +58,21 @@ public class User {
 
     public void setOverallXp(int overallXp) {
         this.overallXp = overallXp;
+    }
+
+    public int getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(int avatar) {
+        this.avatar = avatar;
+    }
+
+    public Date getLastLoggedIn() {
+        return lastLoggedIn;
+    }
+
+    public void setLastLoggedIn(Date lastLoggedIn) {
+        this.lastLoggedIn = lastLoggedIn;
     }
 }
