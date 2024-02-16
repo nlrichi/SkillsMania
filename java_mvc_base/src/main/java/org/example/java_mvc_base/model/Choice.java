@@ -1,13 +1,14 @@
 package org.example.java_mvc_base.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 public class Choice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int choiceId;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "question_id")
     private Question question;
     private String choiceText;

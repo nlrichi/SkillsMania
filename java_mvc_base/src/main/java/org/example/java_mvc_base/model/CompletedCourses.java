@@ -9,10 +9,10 @@ public class CompletedCourses {
     private int completedCoursedId;
     private int secondsElapsed;
     private int score;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "course_id")
     private Course course;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_id")
     private User user;
 
