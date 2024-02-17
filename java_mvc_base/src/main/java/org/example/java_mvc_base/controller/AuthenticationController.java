@@ -12,16 +12,18 @@ import java.util.Objects;
 @Controller
 public class AuthenticationController {
     @Autowired
-    UserRepository u_repo;
-
+    UserRepository userRepository;
     @RequestMapping("/authorization-code/callback")
     public String redirectLogin(OAuth2AuthenticationToken token){
         String name = (String) token.getPrincipal().getAttributes().get("given_name");
-        User logged_in_user = u_repo.findUserByUsername(name);
+        User logged_in_user = userRepository.findUserByUsername(name);
         if (Objects.isNull(logged_in_user)){
             User new_user = new User();
             new_user.setUsername(name);
-
+            userRepository.save(new_user);
+        } else {
+            logged_in_user.setLastLoggedIn();
+            userRepository.save(logged_in_user);
         }
         return "redirect:/feed";
     }

@@ -4,6 +4,7 @@ package org.example.java_mvc_base.model;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 public class User {
@@ -12,10 +13,10 @@ public class User {
     private int userId;
     @Column(unique = true)
     private String username;
-    private int currentStreak;
-    private int overallXp;
-    private int avatar;
-    private Date lastLoggedIn;
+    private int currentStreak = 0;
+    private int overallXp = 0;
+    private int avatar = 0;
+    private Date lastLoggedIn = Date.valueOf(LocalDate.now());
     public String getUsername() {
         return username;
     }
@@ -52,7 +53,15 @@ public class User {
         return lastLoggedIn;
     }
 
-    public void setLastLoggedIn(Date lastLoggedIn) {
-        this.lastLoggedIn = lastLoggedIn;
+    public void setLastLoggedIn() {
+        LocalDate today = LocalDate.now();
+        LocalDate dayAfterLastLogin = this.lastLoggedIn.toLocalDate().plusDays(1);
+
+        if (today.equals(dayAfterLastLogin)) {
+            this.setCurrentStreak(this.currentStreak + 1);
+        } else if (today.isAfter(dayAfterLastLogin)) {
+            this.setCurrentStreak(0);
+        }
+        this.lastLoggedIn = Date.valueOf(LocalDate.now());
     }
 }
