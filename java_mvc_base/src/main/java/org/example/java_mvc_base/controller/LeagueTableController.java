@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,12 +38,11 @@ public class LeagueTableController {
             if (available_leagues.isEmpty()){
                 LeagueTable fresh_league = new LeagueTable();
                 fresh_league.setTierName("Bronze");
-                fresh_league.setDaysLeft(7);
 
                 fresh_league = leagueRepo.save(fresh_league);
                 fresh_league.getMembers().add(current_user);
                 fresh_league = leagueRepo.save(fresh_league);
-                current_user.setLeague(fresh_league);
+                current_user.setLeagueId(fresh_league.getLeagueId());
                 userRepo.save(current_user);
                 model.addAttribute("league", fresh_league);
 
@@ -54,18 +54,21 @@ public class LeagueTableController {
                 random_select_league.getMembers().add(current_user);
                 random_select_league.getMembers().sort(Comparator.comparingInt(User::getOverallXp));
                 random_select_league = leagueRepo.save(random_select_league);
-                current_user.setLeague(random_select_league);
+                current_user.setLeagueId(random_select_league.getLeagueId());
                 userRepo.save(current_user);
                 model.addAttribute("league", random_select_league);
 
             }
 
         }else{
-            LeagueTable user_league = current_user.getLeague();
+            if (current_user.isUsersleagueEnded()){
+
+            }
+            LeagueTable user_league = leagueRepo.findByLeagueId(current_user.getLeagueId());
             user_league.getMembers().sort(Comparator.comparingInt(User::getOverallXp));
             model.addAttribute("league", user_league);
         }
-
+        model.addAttribute("logged_users_uname", fetched_name);
         return "leagueTable/leagueTable";
     }
 }

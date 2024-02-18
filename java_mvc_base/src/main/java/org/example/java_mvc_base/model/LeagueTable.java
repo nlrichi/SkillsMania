@@ -1,14 +1,9 @@
 package org.example.java_mvc_base.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 public class LeagueTable {
@@ -19,10 +14,11 @@ public class LeagueTable {
 
     private String tierName; //Tiers -> "Kings Intelligence", "Artificial champions", "Bronze"
 
-    private LocalDate LastCheckedDate = LocalDate.now();
+    private LocalDate LastCheckedDate = LocalDate.of(2024, 02, 10); //test area
 
-    @OneToMany
-    private List<User> members;
+    @JoinColumn
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<User> members = new ArrayList<User>();
 
     private int daysLeft = 7;
 
@@ -66,10 +62,13 @@ public class LeagueTable {
     }
 
     public List<User> getMembers() {
-        if (Objects.isNull(members)){
-            members = new ArrayList<User>();
-        }
+
+        members.sort(Comparator.comparingInt(User::getOverallXp));
         return members;
+    }
+
+    public LeagueTable(LocalDate date){
+        LastCheckedDate = date;
     }
 
     public int getMembersCount() {

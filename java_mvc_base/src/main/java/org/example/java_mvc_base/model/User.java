@@ -2,26 +2,33 @@ package org.example.java_mvc_base.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class User {
+
+
     @Id
     private String username;
-    @ManyToOne
-    private LeagueTable league;
+
+    private int leagueId;
+
+    private String leagueTier;
+
+    private boolean usersleagueEnded;
 
     private int currentStreak;
 
     private int overallXp;
 
-    public LeagueTable getLeague() {
-        return league;
+    public int getLeagueId() {
+        return leagueId;
     }
 
-    public void setLeague(LeagueTable league) {
-        this.league = league;
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
     }
 
     public int getCurrentStreak() {
@@ -42,6 +49,14 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+
+    public boolean isUsersleagueEnded() {
+        return usersleagueEnded;
+    }
+
+    public void setUsersleagueEnded(boolean usersleagueEnded) {
+        this.usersleagueEnded = usersleagueEnded;
     }
 
     public void setUsername(String username) {

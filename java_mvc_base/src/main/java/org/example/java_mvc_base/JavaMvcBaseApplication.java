@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class JavaMvcBaseApplication {
 	@Autowired
@@ -17,7 +18,10 @@ public class JavaMvcBaseApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(JavaMvcBaseApplication.class, args);
+		leagueUpdateThread = BeanUtil.getBean(LeagueUpdateThread.class);
 
+		leagueUpdateThread.setRunning(true);
+		leagueUpdateThread.run();
 	}
 
 }
