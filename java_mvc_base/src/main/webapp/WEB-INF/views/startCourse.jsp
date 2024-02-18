@@ -1,11 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Start Course</title>
 </head>
 <body>
 <h2>Start Course</h2>
-<a href="/start-course?courseId=123">Start Course 123</a> </body>
+<form action="/start-course" method="post">
+    <input type = "hidden" name="course" value="${param.course}" />
+    <input type="submit" value="Start Course">
+</form>
+</body>
 </html>
-
