@@ -12,13 +12,13 @@ public class LeagueTable {
     @Id
     private int leagueId;
 
-    private String tierName; //Tiers -> "Kings Intelligence", "Artificial champions", "Bronze"
+    private String tierName; //Tiers -> "Kings Intelligence", "Artificial champions", "Bronze" in order
 
     private LocalDate LastCheckedDate = LocalDate.of(2024, 02, 10); //test area
 
     @JoinColumn
     @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
-    private List<User> members = new ArrayList<User>();
+    private List<User> members = new ArrayList<User>(); //league has a list of member users competing
 
     private int daysLeft = 7;
 
