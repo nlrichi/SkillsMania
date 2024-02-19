@@ -1,10 +1,12 @@
 **Software Engineering Project : Group 16 **
+------------------------------------------------------------------------
+**What did everyone do in Sprint 1? Write below next to your name. If you were a scrum master,
+add some brief details of what you did aswell :**
 
-**What did everyone do in Sprint 1? Write below next to your name :**
-Raza Kalid : 
+Raza Khalid : 
 
 
-
+------------------------------------------------------------------------
 **Checklist for Sprint 1**
 1. DoD done for all user stories and comments made for each one
 2. Tasks what everyone done above updated
@@ -13,6 +15,8 @@ Raza Kalid :
 5. Update the user manual (documentation) for each feature
 6. Pre-record demo as agroup and submit to blackboard!
 7. Make sure that all user stories are moved across the scrum board when needed
+8. All code is on main branch, how to execute file instructions also in documentation
+------------------------------------------------------------------------
 
 `Meeting 1`
 
