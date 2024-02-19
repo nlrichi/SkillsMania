@@ -4,7 +4,9 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -16,6 +18,7 @@ public class DurationController {
     public String startPage() {
         return "startCourse";
     }//this is what happens when a user clicks a course link it redirects user to start page with button
+
 
     @PostMapping("/start-course")// this is what happens when the user clicks the start course button
     public String startCourse(@RequestParam("course") String course, HttpSession session) {
