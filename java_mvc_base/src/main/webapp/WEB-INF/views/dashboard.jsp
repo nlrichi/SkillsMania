@@ -12,8 +12,8 @@
             position: absolute;
             left: 0;
             top: 0;
-            height: 63px;
-            width: 130px;
+            height: 113px;
+            width:400px;
             text-align: left;
             padding: 10px 10px 10px;
         }
@@ -25,6 +25,10 @@
             text-align: center;
             font-size: 30px;
             white-space: break-spaces;
+        }
+
+        .header h1 {
+            margin-left: 420px;
         }
         .navbar{
             list-style-type: none;
@@ -59,7 +63,7 @@
             float: right;
             text-align: right;
         }
-        /*CSS for course options*/
+        /*CSS for course options/
         /*Size for pictures in polaroids. height:width ratio is 6:8 */
         .CoursePic{
             height: 300px;
@@ -75,7 +79,7 @@
         }
 
         .polaroid:hover {
-            transform: scale(1.09);
+            transform: scale(1.05);
         }
 
         div.container {
@@ -87,9 +91,7 @@
 
 
 
-        #courses table{
-            border: #555555 1px solid;
-        }
+
 
         #courses td {
             padding: 10px 10px 10px;
@@ -100,13 +102,13 @@
 </head>
 <body>
 <div class="header">
-    <a href="https://www.ibm.com/uk-en"><img src="img/IBMLogo.png" alt="IBM logo" id="logo"></a>
+    <div><img src="img/SkillsMania Logo BIG.png"  id="logo"></div>
     <div><h1>Track your SkillsBuild Progress</h1></div>
     <br>
     <br>
-
-    <!-- Navigation bar-->
 </div>
+
+<!-- Navigation bar-->
 <div class="navbar">
     <ul>
         <div>
