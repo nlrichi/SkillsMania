@@ -116,7 +116,7 @@
             <li>Dashboard</li>
             <!--username display below-->
             <li>Hello, <strong>${principal_username}</strong></li>
-            <li><a href="avatarSelection.jsp">Avatar</a></li>
+            <a href=http://localhost:8080/avatars><li>Avatar</li></a>
         </div>
     </ul>
 </div>
