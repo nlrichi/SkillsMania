@@ -19,7 +19,7 @@ public class JavaMvcBaseApplication {
 
 		SpringApplication.run(JavaMvcBaseApplication.class, args);
 
-		//get the Beaned thread sub class, giving it access to repos
+		//get the Beaned thread subclass, giving it access to repos
 		leagueUpdateThread = BeanUtil.getBean(LeagueUpdateThread.class);
 
 		//Start the tread as well with the application

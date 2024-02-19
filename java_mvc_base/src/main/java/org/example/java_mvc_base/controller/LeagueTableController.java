@@ -28,14 +28,14 @@ public class LeagueTableController {
     public String viewLeagueTable(Model model, OAuth2AuthenticationToken token){
         String fetched_name = (String) token.getPrincipal().getAttributes().get("given_name");
         User current_user = userRepo.findUserByUsername(fetched_name);
-        if (Objects.isNull(current_user)){ //if the user is new add them to the database
+        if (Objects.isNull(current_user)){ //if the user is new add them to the database and set class defaults
             current_user = new User();
             current_user.setUsername(fetched_name);
             current_user.setOverallXp(0);
             current_user.setCurrentStreak(0);
             current_user = userRepo.save(current_user);
             List<LeagueTable> available_leagues = leagueRepo.findByTierNameAndDaysLeftAndMembersCountLessThan("Bronze", 7, 25);
-            if (available_leagues.isEmpty()){ // if there are no available leagues for the promotes, this create a new one of the lowest tier "Bronze"
+            if (available_leagues.isEmpty()){ // if there are no available leagues for the promotes, this creates a new one of the lowest tier "Bronze"
                 LeagueTable fresh_league = new LeagueTable();
                 fresh_league.setTierName("Bronze");
 

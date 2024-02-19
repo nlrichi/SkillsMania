@@ -102,7 +102,6 @@ public class LeagueUpdateThread extends Thread { //background thread to manage r
             }
             count ++;
         }
-        //l_repo.delete(league);
 
     }
 

@@ -13,7 +13,6 @@
             <h2 class="header">${league.daysLeft} ${league.daysLeft==1 ? ' day left' : ' days left'}</h2>
 
             <div class="pseudo_table">
-                <!-- The PDP table consisting of 6 rows and 2 columns -->
                 <div class="table_header">
                     <a class="posi">Position</a>
                     <a class="avatar">Avatar</a>
@@ -22,6 +21,9 @@
                 </div>
 
                 <c:forEach var="member" items="${league.members}" varStatus="loop">
+                    <!-- for each member of the league add a data model to the table.
+                    If it's the logged user, give a special design. -->
+
                     <div class=${member.username == logged_users_uname ? "logged_user_model" : 'user_model'}>
 
                         <a class=${member.username == logged_users_uname ? "logged_user_position" :
