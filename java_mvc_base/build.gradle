@@ -23,6 +23,7 @@ dependencies {
 	implementation group: 'org.apache.commons', name: 'commons-csv', version: '1.10.0'
 	runtimeOnly 'org.apache.tomcat.embed:tomcat-embed-jasper:10.1.9'
 	runtimeOnly 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	implementation 'com.okta.spring:okta-spring-boot-starter:3.0.6'
 
