@@ -4,7 +4,7 @@
 <html>
 <base href="${pageContext.request.contextPath}">
     <head title="League">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/leagueTable.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/lt_assets/leagueTable.css">
 
     </head>
     <body>
@@ -45,6 +45,7 @@
 
 
                 </c:forEach>
+
 
             </div>
         </div>

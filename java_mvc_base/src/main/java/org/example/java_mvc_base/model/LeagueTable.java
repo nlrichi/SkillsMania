@@ -8,13 +8,14 @@ import java.util.*;
 @Entity
 public class LeagueTable {
 
+
     @GeneratedValue
     @Id
     private int leagueId;
 
-    private String tierName; //Tiers -> "Kings Intelligence", "Artificial champions", "Bronze" in order
+    private String tierName; //Tiers -> "Kings Intelligence", "Artificial Champions", "Bronze" in order
 
-    private LocalDate LastCheckedDate = LocalDate.of(2024, 02, 10); //test area
+    private LocalDate LastCheckedDate = LocalDate.now(); //test area
 
     @JoinColumn
     @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
@@ -63,7 +64,7 @@ public class LeagueTable {
 
     public List<User> getMembers() {
 
-        members.sort(Comparator.comparingInt(User::getOverallXp));
+        members.sort(Comparator.comparingInt(User::getLeagueXP));
         return members;
     }
 

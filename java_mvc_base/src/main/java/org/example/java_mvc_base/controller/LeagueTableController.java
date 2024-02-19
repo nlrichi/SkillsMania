@@ -61,6 +61,67 @@ public class LeagueTableController {
             }
 
         }else{ //if the user exists, simply pull the data from the league they are in
+            String logo_path;
+            String tier = leagueRepo.findByLeagueId(current_user.getLeagueId()).getTierName();
+            switch (tier){
+                case "Artificial Champions":
+                    logo_path = "A";
+                    break;
+                default:
+                    logo_path = "K";
+                    break;
+            }
+            if (current_user.isUsersleagueEnded()){
+
+                //if the user's league ended since they last visited the leaderboard, they should
+                //be redirected to "leagueTable/notification" to be notified
+                // of their previous league outcome
+
+                current_user.setUsersleagueEnded(false);
+                int pos = current_user.getFinalLeaguePosition();
+                current_user = userRepo.save(current_user);
+                String suffix;
+                if (Integer.toString(pos).length() == 1 || Integer.toString(pos).charAt(0) != '1'){
+                    switch (Integer.toString(pos)){
+                        case "1":
+                            suffix = "st";
+                            break;
+                        case "2":
+                            suffix = "nd";
+                            break;
+                        case "3":
+                            suffix = "rd";
+                            break;
+                        default:
+                            suffix = "th";
+                    }
+                }else{
+                    suffix = "th";
+                }
+                if (current_user.getFinalLeaguePosition() <= 6) {
+
+                    model.addAttribute("message",
+                            "Congratulations! You finished " + pos + suffix +
+                                    " and you were promoted to the " + tier
+                                    + " league!");
+                    model.addAttribute("situation", "good");
+
+                }else if (current_user.getFinalLeaguePosition() <= 18){
+                    model.addAttribute("message",
+                            "Good job. You finished " + pos + suffix +
+                                    " and kept your spot in the " + tier
+                                    + " league");
+                    model.addAttribute("situation", "good");
+                }else{
+                    model.addAttribute("message",
+                            "Bad luck! You finished " + pos + suffix +
+                                    " and you were relegated to the " + tier
+                                    + " league");
+                    model.addAttribute("situation", "bad");
+                }
+                model.addAttribute("logo", logo_path);
+                return "leagueTable/notification";
+            }
 
             LeagueTable user_league = leagueRepo.findByLeagueId(current_user.getLeagueId());
             user_league.getMembers().sort(Comparator.comparingInt(User::getOverallXp));

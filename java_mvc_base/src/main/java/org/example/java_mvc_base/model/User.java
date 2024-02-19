@@ -13,6 +13,8 @@ public class User {
     @Id
     private String username;
 
+    private int finalLeaguePosition;
+
     private int leagueId;
 
     private String leagueTier;
@@ -21,7 +23,33 @@ public class User {
 
     private int currentStreak;
 
+    private int leagueXP;
+
     private int overallXp;
+
+    public int getLeagueXP() {
+        return leagueXP;
+    }
+
+    public void setLeagueXP(int leagueXP) {
+        this.leagueXP = leagueXP;
+    }
+
+    public String getLeagueTier() {
+        return leagueTier;
+    }
+
+    public void setLeagueTier(String leagueTier) {
+        this.leagueTier = leagueTier;
+    }
+
+    public int getFinalLeaguePosition() {
+        return finalLeaguePosition;
+    }
+
+    public void setFinalLeaguePosition(int finalLeaguePosition) {
+        this.finalLeaguePosition = finalLeaguePosition;
+    }
 
     public int getLeagueId() {
         return leagueId;

@@ -32,9 +32,9 @@ public class LeagueUpdateThread extends Thread { //background thread to manage r
 
         switch (league.getTierName()){ // promotion selection based on which tier the league is
             case "Bronze":
-                promotion_tier = "Artificial champions";
+                promotion_tier = "Artificial Champions";
                 break;
-            case "Artificial champions":
+            case "Artificial Champions":
                 promotion_tier = "Kings Intelligence";
                 break;
             case "Kings Intelligence":
@@ -46,30 +46,28 @@ public class LeagueUpdateThread extends Thread { //background thread to manage r
             case "Bronze":
                 relegation_tier = "Bronze";
                 break;
-            case "Artificial champions":
+            case "Artificial Champions":
                 relegation_tier = "Bronze";
                 break;
             case "Kings Intelligence":
-                relegation_tier = "Artificial champions";
+                relegation_tier = "Artificial Champions";
         }
-        List<User> members = List.copyOf(league.getMembers());
 
+        List<User> members = List.copyOf(league.getMembers());
         for (User user : members){
+            user.setFinalLeaguePosition(count);
+
+            //indicate that the user hasn't opened leaderboards since the league ended. Used
+            //for leaderboard notification redirect
+            user.setUsersleagueEnded(true);
+            user.setLeagueXP(0);
             league.getMembers().remove(user);
             league = l_repo.save(league);
             if (count <= 6) {  //promote the top 6
                 List<LeagueTable> available_leagues = l_repo.
                         findByTierNameAndDaysLeftAndMembersCountLessThan(promotion_tier, 7, 24); //test area
                 LeagueTable fresh_league = null;
-                if (available_leagues.isEmpty()) {// if there are no available leagues for the promotes, this create a new one
-                    fresh_league = new LeagueTable(LocalDate.now());
-                    fresh_league.setTierName(promotion_tier);
-                }else{
-                    Random random = new Random();
-                    int randomIndex = random.nextInt(available_leagues.size()); //select a random available one to add the users to
-                    fresh_league = available_leagues.get(randomIndex);
-                }
-                fresh_league = l_repo.save(fresh_league);
+                fresh_league = getLeagueTable(promotion_tier, available_leagues);
                 league.getMembers().remove(user);
                 user.setLeagueId(fresh_league.getLeagueId());
                 u_repo.save(user);
@@ -80,20 +78,14 @@ public class LeagueUpdateThread extends Thread { //background thread to manage r
                 l_repo.save(fresh_league);
                 //
 
-            } else if (18 >= count ) { //demote the bottom 6
-                List<LeagueTable> available_leagues = l_repo.
-                        findByTierNameAndDaysLeftAndMembersCountLessThan(relegation_tier, 7, 24);
-                LeagueTable fresh_league;
-                if (available_leagues.isEmpty()) { // if there are no available leagues for the relegates, this create a new one
-                    fresh_league = new LeagueTable(LocalDate.now());
-                    fresh_league.setTierName(relegation_tier);
-                }else{
-                    Random random = new Random();
-                    int randomIndex = random.nextInt(available_leagues.size());
-                    fresh_league = available_leagues.get(randomIndex);
-                }
+            } else if (19 >= count ) { //demote the bottom 6
 
-                fresh_league = l_repo.save(fresh_league);
+                //Max in each league is 24 members
+                //find leagues that have less than or equal to that
+                List<LeagueTable> available_leagues = l_repo.
+                        findByTierNameAndDaysLeftAndMembersCountLessThan(relegation_tier, 7, 25);
+
+                LeagueTable fresh_league = getLeagueTable(relegation_tier, available_leagues);
                 fresh_league.getMembers().add(user);
                 user.setLeagueId(fresh_league.getLeagueId());
                 u_repo.save(user);
@@ -103,6 +95,20 @@ public class LeagueUpdateThread extends Thread { //background thread to manage r
             count ++;
         }
 
+    }
+
+    private LeagueTable getLeagueTable(String promotion_tier, List<LeagueTable> available_leagues) {
+        LeagueTable fresh_league;
+        if (available_leagues.isEmpty()) {// if there are no available leagues for the promotes, this create a new one
+            fresh_league = new LeagueTable(LocalDate.now());
+            fresh_league.setTierName(promotion_tier);
+        }else{
+            Random random = new Random();
+            int randomIndex = random.nextInt(available_leagues.size()); //select a random available one to add the users to
+            fresh_league = available_leagues.get(randomIndex);
+        }
+        fresh_league = l_repo.save(fresh_league);
+        return fresh_league;
     }
 
     @Override
