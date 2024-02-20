@@ -17,6 +17,8 @@
             text-align: left;
             padding: 10px 10px 10px;
         }
+
+
         .header {
             margin-bottom: 0;
             margin-top: 0;
@@ -30,6 +32,8 @@
         .header h1 {
             margin-left: 420px;
         }
+
+        /*Navigation bar */
         .navbar{
             list-style-type: none;
             margin: 0;
@@ -50,13 +54,13 @@
 
         .navbar li {
             display: block;
-            color: white;
+            color: #000000;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
         }
         .navbar li:hover {
-            background-color: mediumblue;
+            background-color: #fd816d;
             cursor: pointer;
         }
         .userInfo li{
@@ -70,6 +74,7 @@
             width: 400px;
 
         }
+
         /*Polaroid effect with hover effect */
         div.polaroid {
             width: 400px;
@@ -85,12 +90,6 @@
         div.container {
             padding: 10px;
         }
-
-
-
-
-
-
 
 
         #courses td {
@@ -112,11 +111,12 @@
 <div class="navbar">
     <ul>
         <div>
-            <li>Home</li>
-            <li>Dashboard</li>
             <!--username display below-->
             <li>Hello, <strong>${principal_username}</strong></li>
-            <a href=http://localhost:8080/avatars><li>Avatar</li></a>
+            <a href="http://localhost:8080/leaderboard"><li></li></a>
+            <!--Avatar display and log out -->
+            <a href=http://localhost:8080/avatars><li class="userInfo">Your Avatar</li></a>
+            <a href="localhost:8080/logout"><li class="userInfo">Log out</li></a>
         </div>
     </ul>
 </div>
