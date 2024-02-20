@@ -1,0 +1,102 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif; /* Consistent font for readability */
+    background-color: #f8f8f9; /* Neutral background for the entire page */
+    color: #333; /* Default text color for better contrast */
+    line-height: 1.6; /* Spacing for readability */
+    padding: 20px; /* Padding around the page content */
+}
+
+h2, h3, h4 {
+    text-align: center; /* Center-align all headings for consistency */
+    margin-bottom: 20px; /* Space below headings */
+}
+
+img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Main Content Container */
+.main-container {
+    max-width: 800px; /* Optimal reading width */
+    margin: auto; /* Center the container */
+    padding: 20px; /* Padding inside the container */
+    background-color: #ffffff; /* Background color for content area */
+    border-radius: 8px; /* Soften edges */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.current-avatar-section {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f0f0f2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex; /* Establishes a flex container */
+    justify-content: center; /* Centers flex items horizontally within the container */
+    align-items: center; /* Centers flex items vertically within the container */
+    flex-direction: column; /* Stacks flex items vertically */
+}
+
+.current-avatar {
+    display: block; /* Full width for the container */
+    margin: auto; /* Auto margins on block elements center them horizontally */
+}
+
+
+.current-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    margin-bottom: 10px;
+}
+
+.current-avatar p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Avatar Selection Styles */
+.avatar-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.avatar h4 {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
