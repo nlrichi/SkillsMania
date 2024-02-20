@@ -29,33 +29,16 @@ public class LeagueTableController {
             current_user.setOverallXp(0);
             current_user.setCurrentStreak(0);
             current_user = userRepo.save(current_user);
-            List<LeagueTable> available_leagues = leagueRepo.findByTierNameAndDaysLeftAndMembersCountLessThan("Bronze", 7, 25);
-            if (available_leagues.isEmpty()){ // if there are no available leagues, this creates a new one of the lowest tier "Bronze"
-                LeagueTable fresh_league = new LeagueTable();
-                fresh_league.setTierName("Bronze");
-                fresh_league = leagueRepo.save(fresh_league);
-                fresh_league.getMembers().add(current_user);
-                fresh_league = leagueRepo.save(fresh_league);
-                current_user.setLeagueId(fresh_league.getLeagueId());
-                userRepo.save(current_user);
-                model.addAttribute("league", fresh_league);
-            } else {
-                Random random = new Random();
-                int randomIndex = random.nextInt(available_leagues.size());
-                LeagueTable random_select_league = available_leagues.get(randomIndex);
-                random_select_league.getMembers().add(current_user);
-                random_select_league.getMembers().sort(Comparator.comparingInt(User::getOverallXp));
-                random_select_league = leagueRepo.save(random_select_league);
-                current_user.setLeagueId(random_select_league.getLeagueId());
-                userRepo.save(current_user);
-                model.addAttribute("league", random_select_league);
-            }
+            current_user = findNewLeague(model, current_user);
+            current_user = userRepo.save(current_user);
+
         } else { //if the user exists, simply pull the data from the league they are in
             LeagueTable user_league = leagueRepo.findByLeagueId(current_user.getLeagueId());
             if (user_league == null) {
                 // Handle the scenario where the league is not found
-                model.addAttribute("errorMessage", "No league found for the user.");
-                return "errorPage"; // Make sure you have a view for handling errors
+                current_user = findNewLeague(model, current_user);
+                current_user = userRepo.save(current_user);
+                user_league = leagueRepo.findByLeagueId(current_user.getLeagueId());
             }
             // Proceed with existing logic if league is found
             user_league.getMembers().sort(Comparator.comparingInt(User::getOverallXp));
@@ -66,5 +49,30 @@ public class LeagueTableController {
         model.addAttribute("principal_username",
                 token.getPrincipal().getAttributes().get("given_name"));
         return "leagueTable"; // Make sure this is the correct view name for your leaderboard
+    }
+
+    public User findNewLeague(Model model, User current_user){
+        List<LeagueTable> available_leagues = leagueRepo.findByTierNameAndDaysLeftAndMembersCountLessThan("Bronze", 7, 25);
+        if (available_leagues.isEmpty()){ // if there are no available leagues, this creates a new one of the lowest tier "Bronze"
+            LeagueTable fresh_league = new LeagueTable();
+            fresh_league.setTierName("Bronze");
+            fresh_league = leagueRepo.save(fresh_league);
+            fresh_league.getMembers().add(current_user);
+            fresh_league = leagueRepo.save(fresh_league);
+            current_user.setLeagueId(fresh_league.getLeagueId());
+            current_user = userRepo.save(current_user);
+            model.addAttribute("league", fresh_league);
+        } else {
+            Random random = new Random();
+            int randomIndex = random.nextInt(available_leagues.size());
+            LeagueTable random_select_league = available_leagues.get(randomIndex);
+            random_select_league.getMembers().add(current_user);
+            random_select_league.getMembers().sort(Comparator.comparingInt(User::getOverallXp));
+            random_select_league = leagueRepo.save(random_select_league);
+            current_user.setLeagueId(random_select_league.getLeagueId());
+            current_user = userRepo.save(current_user);
+            model.addAttribute("league", random_select_league);
+        }
+        return current_user;
     }
 }
