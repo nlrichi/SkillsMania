@@ -32,7 +32,7 @@ public class DurationController {
                 // Construct the JavaScript to open the endCourse.jsp page in a new tab/window
                 String script = "<script>window.open('" + endCourseUrl + "', '_blank');</script>";
                 // Return the script along with the redirect to the actual course page
-                return "redirect:https://skillsbuild.org/adult-learners/explore-learning/" + course + script;
+                return "redirect:https://skillsbuild.org/adult-learners/explore-learning/" + course;
             }else {
                 //in case of invalid course ID
                 return "error-page";
