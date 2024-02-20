@@ -39,7 +39,7 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
-            background-color: dodgerblue;
+            background-color: #fd816d;
             color: ghostwhite;
         }
 
@@ -58,15 +58,19 @@
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+
+
         }
         .navbar li:hover {
-            background-color: #fd816d;
+            background-color: #fad56f;
             cursor: pointer;
         }
-        .userInfo li{
-            float: right;
-            text-align: right;
+
+        .rightside li{
+            display: flex;
+            justify-content: flex-end;
         }
+
         /*CSS for course options/
         /*Size for pictures in polaroids. height:width ratio is 6:8 */
         .CoursePic{
@@ -111,12 +115,15 @@
 <div class="navbar">
     <ul>
         <div>
-            <!--username display below-->
+            <!--username display, leaderboard and streaks page-->
             <li>Hello, <strong>${principal_username}</strong></li>
-            <a href="http://localhost:8080/leaderboard"><li></li></a>
+            <a href="http://localhost:8080/leaderboard"><li>Leaderboard</li></a>
+            <a href="http://localhost:8080/userStreak"><li>Streak</li></a>
             <!--Avatar display and log out -->
-            <a href=http://localhost:8080/avatars><li class="userInfo">Your Avatar</li></a>
-            <a href="localhost:8080/logout"><li class="userInfo">Log out</li></a>
+            <div class="rightside">
+                <a href=http://localhost:8080/avatars><li>Your Avatar</li></a>
+                <a href="localhost:8080/logout"><li>Log out</li></a>
+            </div>
         </div>
     </ul>
 </div>
