@@ -4,9 +4,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -14,8 +12,8 @@ import java.time.Instant;
 @Controller
 public class DurationController {
 
-    @GetMapping("/explore-learning")
-    public String startPage() {
+    @GetMapping("/start-course-page")
+    public String startPage(@RequestParam("course") String course) {
         return "startCourse";
     }//this is what happens when a user clicks a course link it redirects user to start page with button
 
@@ -29,7 +27,12 @@ public class DurationController {
             // Redirect to actual course page
             if (course.equals("web-developer") || course.equals("project-manager") ||
                     course.equals("it-support-technician") || course.equals("cybersecurity-analyst") || course.equals("data-analyst")) {
-                return "redirect:https://skillsbuild.org/adult-learners/explore-learning/" + course;
+                // Construct the URL of the endCourse.jsp page
+                String endCourseUrl = "/endCourse.jsp";
+                // Construct the JavaScript to open the endCourse.jsp page in a new tab/window
+                String script = "<script>window.open('" + endCourseUrl + "', '_blank');</script>";
+                // Return the script along with the redirect to the actual course page
+                return "redirect:https://skillsbuild.org/adult-learners/explore-learning/" + course + script;
             }else {
                 //in case of invalid course ID
                 return "error-page";
@@ -40,15 +43,6 @@ public class DurationController {
         }
     }
 
-    @GetMapping("/course-end")//this should be the get request for after a user completes a course they are redirected to the endcourse page
-    public String endPage(HttpSession session) {
-        long startTime = (long) session.getAttribute("startTime");
-        if (startTime == 0) {
-            // Handle missing start time
-            return "error-page";
-        }
-        return "endCourse";
-    }
 
     @PostMapping("/end-course")//this is what happens when a user clicks the end course button
     public String endCourse(HttpSession session) {

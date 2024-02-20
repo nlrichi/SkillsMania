@@ -6,5 +6,9 @@
 </head>
 <body>
 <h2>Course Result</h2>
-<p>Course duration: ${duration} milliseconds</p> </body>
+<p><strong>Course:</strong> ${session.getAttribute("course")}</p>
+<p><strong>Start Time:</strong> ${session.getAttribute("startTime")}</p>
+<p><strong>End Time:</strong> ${session.getAttribute("endTime")}</p>
+<p><strong>Duration:</strong> ${session.getAttribute("duration")} seconds</p>
+</body>
 </html>

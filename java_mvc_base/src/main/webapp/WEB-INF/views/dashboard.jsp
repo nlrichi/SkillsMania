@@ -131,7 +131,7 @@
 
             <td>
                 <div class="polaroid">
-                    <a href="https://skillsbuild.org/adult-learners/explore-learning/data-analyst"><img class="CoursePic" src="/img/DataAnalyst-00.webp"/></a>
+                    <a href="/start-course-page?course=data-analyst"><img class="CoursePic" src="/img/DataAnalyst-00.webp"/></a>
                     <div class="container">
                         <p>Data Analyst</p>
                     </div>
@@ -140,7 +140,7 @@
 
             <td>
                 <div class="polaroid">
-                    <a href="https://skillsbuild.org/adult-learners/explore-learning/cybersecurity-analyst"><img class="CoursePic"  src="/img/ibmCyberSecurity.webp"/></a>
+                    <a href="/start-course-page?course=cybersecurity-analyst"><img class="CoursePic"  src="/img/ibmCyberSecurity.webp"/></a>
                     <div class="container">
                         <p>Cybersecurity</p>
                     </div>
@@ -149,7 +149,7 @@
 
             <td>
                 <div class="polaroid">
-                    <a href="https://skillsbuild.org/adult-learners/explore-learning/it-support-technician"> <img class="CoursePic"  src="/img/Information-Technology-Fundamentals-1.webp"/></a>
+                    <a href="/start-course-page?course=it-support-technician"> <img class="CoursePic"  src="/img/Information-Technology-Fundamentals-1.webp"/></a>
                     <div class="container">
                         <p>Information Technology</p>
                     </div>
@@ -160,7 +160,7 @@
         <tr>
             <td>
                 <div class="polaroid">
-                    <a href="https://skillsbuild.org/adult-learners/explore-learning/project-manager"><img class="CoursePic"  src="/img/ProjectManager-00.webp"/></a>
+                    <a href="/start-course-page?course=project-manager"><img class="CoursePic"  src="/img/ProjectManager-00.webp"/></a>
                     <div class="container">
                         <p>Project Management</p>
                     </div>
@@ -169,7 +169,7 @@
 
             <td>
                 <div class="polaroid">
-                    <a href="https://skillsbuild.org/adult-learners/explore-learning/web-developer"> <img class="CoursePic" src="/img/Web_Development_Fundamentals-1-1.webp"/></a>
+                    <a href="/start-course-page?course=web-developer"> <img class="CoursePic" src="/img/Web_Development_Fundamentals-1-1.webp"/></a>
                     <div class="container">
                         <p>Web Development</p>
                     </div>

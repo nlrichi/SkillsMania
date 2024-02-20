@@ -6,6 +6,7 @@
 </head>
 <body>
 <h2>End Course</h2>
+<p>Click the end button when once you have completed the course.</p>
 <form action="/end-course" method="post">
     <input type="submit" value="End Course">
 </form>
