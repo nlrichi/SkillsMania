@@ -1,5 +1,5 @@
 package org.example.java_mvc_base.controller;
-
+//relevant imports as needed
 import org.springframework.ui.Model;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController {
-
+    //controller to return home when fist being launched
     @GetMapping("/")
     public String home () {
         return "home";
     }
 
+    //controller to return the securedPage which then redirects to the Dashboard
     @GetMapping("/securedPage")
     public String securedPage() {
         return "securedPage";
     }
 
-    @RequestMapping("/feed")
-    public String feed(){return "feed";}
-
+    //Dashboard controller, this uses OAuth2 Token which is made when signing up to the SkillsMania
+    //to retrieve info such as the username, email etc. Returns the dashboard JSP as requested.
     @GetMapping("/dashboard")
     @PreAuthorize("hasAuthority('SCOPE_profile')")
     public String userDetails(Model model, OAuth2AuthenticationToken token) {

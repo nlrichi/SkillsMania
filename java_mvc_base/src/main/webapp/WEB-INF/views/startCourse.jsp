@@ -7,7 +7,7 @@
 <body>
 <h2>Start Course</h2>
 <p>Click the start button when you're ready to start.</p>
-<form action="/start-course" method="post">
+<form action="/start-button" method="post">
     <input type = "hidden" name="course" value="${param.course}" />
     <input type="submit" value="Start Course">
 </form>

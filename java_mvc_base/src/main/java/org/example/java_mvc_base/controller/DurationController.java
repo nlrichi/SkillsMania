@@ -18,7 +18,7 @@ public class DurationController {
     }//this is what happens when a user clicks a course link it redirects user to start page with button
 
 
-    @PostMapping("/start-course")// this is what happens when the user clicks the start course button
+    @PostMapping("/start-button")// this is what happens when the user clicks the start course button
     public String startCourse(@RequestParam("course") String course, HttpSession session) {
         try {
             // Record start time and store start time in session
@@ -32,7 +32,7 @@ public class DurationController {
                 // Construct the JavaScript to open the endCourse.jsp page in a new tab/window
                 String script = "<script>window.open('" + endCourseUrl + "', '_blank');</script>";
                 // Return the script along with the redirect to the actual course page
-                return "redirect:https://skillsbuild.org/adult-learners/explore-learning/" + course + script;
+                return "redirect:https://skillsbuild.org/adult-learners/explore-learning/" + course;
             }else {
                 //in case of invalid course ID
                 return "error-page";
@@ -44,7 +44,7 @@ public class DurationController {
     }
 
 
-    @PostMapping("/end-course")//this is what happens when a user clicks the end course button
+    @PostMapping("/end-button")//this is what happens when a user clicks the end course button
     public String endCourse(HttpSession session) {
         try {
             // Retrieve start time from session

@@ -1,7 +1,9 @@
 package org.example.java_mvc_base;
 
 import org.example.java_mvc_base.model.Avatar;
+import org.example.java_mvc_base.model.LeagueUpdateThread;
 import org.example.java_mvc_base.repo.AvatarRepository;
+import org.example.java_mvc_base.repo.LeagueTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,10 +15,19 @@ public class JavaMvcBaseApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(JavaMvcBaseApplication.class, args);
+
+		leagueUpdateThread = BeanUtil.getBean(LeagueUpdateThread.class);
+		leagueUpdateThread.setRunning(true);
+		leagueUpdateThread.run();
 	}
 
 	@Autowired
 	private AvatarRepository avatarRepository;
+
+	@Autowired
+	LeagueTableRepository league_repo;
+
+	static LeagueUpdateThread leagueUpdateThread;
 
 	@Bean
 	CommandLineRunner initDatabase() {
