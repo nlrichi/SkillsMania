@@ -10,7 +10,7 @@ Raza Khalid :
 ------------------------------------------------------------------------
 **Checklist for Sprint 1**
 1. DoD done for all user stories and comments made for each one
-2. Tasks what everyone done above updated
+2. Tasks that everyone done above updated
 3. Screenshots of scrum board
 4. Everyone needs to make at least 4 code commits
 5. Update the user manual (documentation) for each feature
@@ -166,7 +166,9 @@ ERM diagram link: https://drive.google.com/file/d/1yPgZ55j-vAlCmwf17IeBybqLL8gZI
 2-3PM. Lance, Ree not present. (Lance ill)
 
 Ree was scrum master last week.
-Hameed scrum master this week.
+Hammed scrum master this week.
+
+Decisions on how to structure our git repository for coding, including the required flows like code being pushed to the review branch before heading to the main branch
 
 Meeting - 08/02/2024
 2-3PM. Lance, Ree, not present.
