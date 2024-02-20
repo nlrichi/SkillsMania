@@ -1,11 +1,15 @@
 package org.example.java_mvc_base.controller;
 //relevant imports as needed
+import org.example.java_mvc_base.model.User;
+import org.example.java_mvc_base.repo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Objects;
 
 @Controller
 public class WebController {
@@ -21,11 +25,25 @@ public class WebController {
         return "securedPage";
     }
 
+    @Autowired
+    private UserRepository userRepository;
     //Dashboard controller, this uses OAuth2 Token which is made when signing up to the SkillsMania
     //to retrieve info such as the username, email etc. Returns the dashboard JSP as requested.
     @GetMapping("/dashboard")
     @PreAuthorize("hasAuthority('SCOPE_profile')")
     public String userDetails(Model model, OAuth2AuthenticationToken token) {
+
+        String name = (String) token.getPrincipal().getAttributes().get("given_name");
+        User loggedInUser = userRepository.findUserByUsername(name);
+        if (Objects.isNull(loggedInUser)) {
+            User newUser = new User();
+            newUser.setUsername(name);
+            userRepository.save(newUser);
+        } else {
+            loggedInUser.setLastLoggedIn();
+            userRepository.save(loggedInUser);
+        }
+
         model.addAttribute("username", token.getPrincipal().getName());
         model.addAttribute("details", token.getPrincipal().getAttributes());
         model.addAttribute("principal_username",
