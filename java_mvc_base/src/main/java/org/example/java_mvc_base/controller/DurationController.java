@@ -18,7 +18,7 @@ public class DurationController {
     }//this is what happens when a user clicks a course link it redirects user to start page with button
 
 
-    @PostMapping("/start-course")// this is what happens when the user clicks the start course button
+    @PostMapping("/start-button")// this is what happens when the user clicks the start course button
     public String startCourse(@RequestParam("course") String course, HttpSession session) {
         try {
             // Record start time and store start time in session
@@ -44,7 +44,7 @@ public class DurationController {
     }
 
 
-    @PostMapping("/end-course")//this is what happens when a user clicks the end course button
+    @PostMapping("/end-button")//this is what happens when a user clicks the end course button
     public String endCourse(HttpSession session) {
         try {
             // Retrieve start time from session
