@@ -1,4 +1,5 @@
 **Software Engineering Project : Group 16 **
+_Project Name : SkillsMania_
 ------------------------------------------------------------------------
 **What did everyone do in Sprint 1? Write below next to your name. If you were a scrum master,
 add some brief details of what you did aswell :**
