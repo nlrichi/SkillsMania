@@ -1,0 +1,174 @@
+.bg_image2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('bg2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1558px;
+    width: 1520px;
+    flex: 1;
+    margin: -8px 0px -10px -16px;
+    object-fit: fill;
+}
+
+
+
+
+.header{
+    font-family: "Heiti SC";
+    color: #A4FF05;
+}
+
+.table_header{
+    width: 100%;
+    height: 6%;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+
+}
+.header_names{
+    margin-top: 2.5%;
+    font-family: Avenir;
+    font-size: x-large;
+    color: aliceblue;
+    width: 35%;
+    height: 100%;
+    padding-left: 15%;
+
+}
+
+.logged_user_model{
+    width: 100%;
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-around;
+    padding-top: 2%;
+    color: black;
+    background-color: #00cc00;
+
+}
+.logged_user_model_name{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xx-large;
+    color: black;
+    margin-top: 1.5%;
+    width: 50%;
+}
+
+.logged_user_position{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xx-large;
+    color: black;
+    margin-top: 1.5%;
+    width: 5%;
+}
+
+.avatar{
+    margin-top: 2.5%;
+    color: aliceblue;
+    font-family: Avenir;
+    font-size: x-large;
+    padding-left: 2%;
+    width: 15%;
+
+}
+
+.posi{
+    margin-top: 2.5%;
+    color: aliceblue;
+    font-family: Avenir;
+    font-size: x-large;
+    padding-left: 2%;
+    width: 5%;
+
+}
+
+.pseudo_table{
+    border-radius: 5%;
+    width: 80%;
+    flex: 1;
+    text-align: center;
+    outline-width: medium;
+
+    border: 6px solid;
+    border-collapse: collapse;
+
+    border-color: #A4FF05;
+}
+
+.user_model{
+    width: 100%;
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-around;
+    padding-top: 2%;
+    background-color: #172B1F;
+
+}
+
+.user_model_image{
+    width: 8%;
+    border-radius: 50%;
+    margin-bottom: 1.5%;
+}
+.user_model_name{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xx-large;
+    color: #41FF7D;
+    margin-top: 1.5%;
+    width: 50%;
+}
+
+.logged_user_model_xp{
+    font-family: Beirut;
+    color: black;
+    font-size: xx-large;
+    margin-top: 1.5%;
+    width: 20%;
+}
+
+.user_model_xp{
+    font-family: Beirut;
+    color: #41FF7D;
+    font-size: xx-large;
+    margin-top: 1.5%;
+    width: 20%;
+}
+.user_position{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xx-large;
+    color: #41FF7D;
+    margin-top: 1.5%;
+    width: 5%;
+}
+
+table{
+    height: 600px;
+    width: 100%;
+    text-align: center;
+    outline-color: green;
+    outline-width: medium;
+    border: 6px solid;
+    border-collapse: collapse;
+}
+
+td{
+    background-color:rgba(97, 173, 90, 0.192);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    text-align: center;
+
+}
+.user_model:hover{
+
+    background-color: rgba(8, 66, 1, 0.652);
+    color: rgb(0, 255, 89);
+}
