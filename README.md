@@ -25,7 +25,7 @@ SkillsMania is a Spring Boot Web Application, which gamifies elements of IBM Ski
 
 4. Now, locate the directory that the project that is about to be created in.
 
-5. Grea, now the project has been cloned! Now allow the project some time to build.
+5. Great, now the project has been cloned! Now allow the project some time to build.
 
 6. Configuring the database to ensure no errors : 
 
@@ -63,6 +63,16 @@ I cannot run the project, as the classes are showing as 'teacups' and the progra
 **Login & Register Page**
 1. After succesfully starting the Spring Boot Application, head over to any web browser and in the search/URL bar,
 insert 'http://localhost:8080'.
+2. You will now be on the landing page, and you will not be able to access the dashboard or any features until logging in or registering your new profile.
+3. Cick the login link which will take you to the secure OAuth2 login/register page.
+4. If you have an account already, then sign in, and skip to **instruction 7**. Otheriwse, to register your account, click the 'Sign Up' link at the bottom of the centre module. Follow the instructions and enter your desired username to be used in SkillsMania, your first and last name, as well as your email address, which can be used to reset your password if need be.
+5. If you realised you do have an account, there is a link that will take you back to the login page at the bottom left centre of the centre module.
+6. After succesfully filling in your details and setting up your password according to the requirements stated, you will be shown an option to enter a security question (optional).
+7. Now that you have been logged in succesfully, you will be redirected to the securedPage, which will verify your details and then automatically redirect you to your dashboard within seconds!
 
+**Forgotten your password?** Launch the application and click login to navigate to the OAuth2 Login page. Underneath the 'Sign In' button is a link which states 'Forgot Password?'. Click this button and follow the steps to reset your password.
 
+**Log Out :** To logout from your account, click this link : http://localhost:8080/logout, which is also in the dashboard header formatted as the 'Log-Out' button.
+
+---------------------------------------
 
