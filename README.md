@@ -101,4 +101,11 @@ insert 'http://localhost:8080'.
 4. There are 3 tiers namely in order: "Kings Intelligence", "Artificial Champions", and "Bronze". This is also highlighted at the top of the page
 5. If the user is new, they get added to a league of "Bronze" tier – the lowest tier league. If no leagues of Bronze tier that are currently within capacity of 24 users exist, a new one is created and added to the database with the current user included as a member.
 6. If the user has not visited the leaderboard endpoint since their league ended, they're presented with "notification.jsp" with informs them of their outcome. They can go on to their new league from that page by clicking the button labelled "LET'S GO" at the bottom.
+
+**Streak system**
+1. when a user first logs in they have a streak of 0
+2. for every consecutive day they log in there streek increases by 1 e.g. if you log in monday, tuesday and wednesday there streak will be 3
+3. if there user misses a day e.g. logs in monday and then wednesday there streek will reset to 0
+4. on the dashboard the streak is in the top left after you log in
+
 ---------------------------------------
