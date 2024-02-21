@@ -118,11 +118,11 @@
             <!--username display, leaderboard and streaks page-->
             <li>Hello, <strong>${principal_username}</strong></li>
             <a href="http://localhost:8080/leaderboard"><li>Leaderboard</li></a>
-            <a href="http://localhost:8080/userStreak"><li>Streak</li></a>
+            <li>Current Streak ${streak}</li>
             <!--Avatar display and log out -->
             <div class="rightside">
                 <a href=http://localhost:8080/avatars><li>Your Avatar</li></a>
-                <a href="localhost:8080/logout"><li>Log out</li></a>
+                <a href="http://localhost:8080/logout"><li>Log out</li></a>
             </div>
         </div>
     </ul>

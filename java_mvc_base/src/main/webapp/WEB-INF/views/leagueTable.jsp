@@ -30,16 +30,16 @@
                                 'user_position'}>${loop.index + 1}.
                         </a>
 
-                        <img class="user_model_image" src="${pageContext.request.contextPath}${currentAvatar.image}" alt="${currentAvatar.name}" />
+                        <img class="user_model_image" src="${pageContext.request.contextPath}${member.avatar.image}" alt="${member.avatar.name}" />
 
                         <a class=${member.username == logged_users_uname ? "logged_user_model_name" :
-                         'user_model_name'}>${principal_username} ${member.username == logged_users_uname ?
+                         'user_model_name'}>${member.username} ${member.username == logged_users_uname ?
                          "(you)" : ''}
                         </a>
 
                         <a class=${member.username == logged_users_uname ? "logged_user_model_xp" :
                                 'user_model_xp'} >
-                                ${member.overallXp} xp
+                                ${member.leagueXP} xp
                         </a>
                     </div>
 

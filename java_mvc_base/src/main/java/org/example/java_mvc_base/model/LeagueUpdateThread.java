@@ -78,7 +78,7 @@ public class LeagueUpdateThread extends Thread { //background thread to manage r
                 l_repo.save(fresh_league);
                 //
 
-            } else if (19 >= count ) { //demote the bottom 6
+            } else { //demote the rest
 
                 //Max in each league is 24 members
                 //find leagues that have less than or equal to that
@@ -116,7 +116,7 @@ public class LeagueUpdateThread extends Thread { //background thread to manage r
         while (running) {
             System.out.println("SLEEPING BEFORE CHECKING");
             try {
-                sleep(60000); //check for changes every  minute
+                sleep(20000); //check for changes every  minute
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

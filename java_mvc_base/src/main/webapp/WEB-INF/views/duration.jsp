@@ -7,22 +7,11 @@
 <body>
 <h2>Course Result</h2>
 <p><strong>Course:</strong> ${course}</p>
-<p><strong>Start Time:</strong> ${startTime}</p>
-<p><strong>End Time:</strong> ${endTime}</p>
-<p><strong>Duration:</strong> ${duration} milliseconds</p>
+<p><strong>Start Time:</strong> ${startTime}</p> <!-- Formatted ISO instant string -->
+<p><strong>End Time:</strong> ${endTime}</p>   <!-- Formatted ISO instant string -->
+<p><strong>Duration:</strong> ${duration} seconds</p> <!-- Duration in seconds -->
 </body>
 </html>
 
-<%--<!DOCTYPE html>--%>
-<%--<html lang="en">--%>
-<%--<head>--%>
-<%--    <meta charset="UTF-8">--%>
-<%--    <title>Course Duration</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<h2>Course Duration</h2>--%>
-<%--<p>Duration: ${duration} seconds</p>--%>
-<%--<a href="/">Return Home</a>--%>
-<%--</body>--%>
-<%--</html>--%>
+
 
