@@ -15,7 +15,7 @@ public class LeagueTable {
 
     private String tierName; //Tiers -> "Kings Intelligence", "Artificial Champions", "Bronze" in order
 
-    private LocalDate LastCheckedDate = LocalDate.now(); //test area
+    private LocalDate LastCheckedDate = LocalDate.of(2024, 02, 13); //test area
 
     @JoinColumn
     @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
@@ -64,7 +64,7 @@ public class LeagueTable {
 
     public List<User> getMembers() {
 
-        members.sort(Comparator.comparingInt(User::getLeagueXP));
+        members.sort(Comparator.comparingInt(User::getLeagueXP).reversed());
         return members;
     }
 
