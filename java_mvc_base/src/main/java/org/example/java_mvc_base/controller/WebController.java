@@ -36,14 +36,14 @@ public class WebController {
         String name = (String) token.getPrincipal().getAttributes().get("given_name");
         User loggedInUser = userRepository.findUserByUsername(name);
         if (Objects.isNull(loggedInUser)) {
-            User newUser = new User();
-            newUser.setUsername(name);
-            userRepository.save(newUser);
+            loggedInUser = new User();
+            loggedInUser.setUsername(name);
+            userRepository.save(loggedInUser);
         } else {
             loggedInUser.setLastLoggedIn();
             userRepository.save(loggedInUser);
         }
-
+        model.addAttribute("streak", loggedInUser.getCurrentStreak());
         model.addAttribute("username", token.getPrincipal().getName());
         model.addAttribute("details", token.getPrincipal().getAttributes());
         model.addAttribute("principal_username",
