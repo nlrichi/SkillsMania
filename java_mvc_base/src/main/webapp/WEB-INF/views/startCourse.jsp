@@ -7,7 +7,7 @@
     <title>Start Course</title>
     <script type="text/javascript">
         function startCourse(event) {
-            event.preventDefault(); // Prevent the form from submitting traditionally
+            event.preventDefault(); // Prevent the form submitting traditionally
 
             var course = document.getElementById('course').value;
             var courseUrl = "https://skillsbuild.org/adult-learners/explore-learning/" + course;
