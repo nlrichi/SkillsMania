@@ -40,13 +40,11 @@ public class AvatarController {
 
     @GetMapping
     public String listAvatars(Model model, OAuth2AuthenticationToken token) {
-        String username = token.getName(); // Consistently use token.getName()
+        String username = (String) token.getPrincipal().getAttributes().get("given_name");
         User currentUser = userRepository.findUserByUsername(username);
-        if (currentUser == null) {
-            currentUser = new User();
-            currentUser.setUsername(username);
-            userRepository.save(currentUser);
-        }
+//        if (currentUser == null) {
+//            return "redirect:/error";
+//        }
         model.addAttribute("avatars", avatarRepository.findAll());
         model.addAttribute("currentAvatar", currentUser.getAvatar());
         return "avatarSelection";
@@ -55,7 +53,7 @@ public class AvatarController {
 
     @GetMapping("/select/{id}")
     public String selectAvatar(@PathVariable("id") Long id, OAuth2AuthenticationToken token) {
-        String username = token.getName(); // Consistently use token.getName()
+        String username = (String) token.getPrincipal().getAttributes().get("given_name");
         User user = userRepository.findUserByUsername(username);
         Avatar avatar = avatarRepository.findById(id).orElse(null);
         if (user != null && avatar != null) {
