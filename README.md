@@ -81,6 +81,10 @@ insert 'http://localhost:8080'.
 4. if you wish to change your avatar, all you have to do is navigate back to the avatar selection and select a diffrent avatar.
 5. If you encounter any issues while selecting an avatar, please ensure you are logged in and have a stable internet connection.
 
-
+**Start time and completion time**
+1. On dashboard select a course from the available courses, clicking any of these will direct you to 'http:localhost:8080/startCourse'.
+2. On this page there is a  start button, upon clicking that button you are redirected to the appropiate SkillsBuild course page in a new tab, simultaneously you are also redirected 'http:localhost:8080/endCourse'.
+3. This page is for tracking course completetion, when you finish the course on skillbuild, return to this page click the end button, it will store your end time in the session.
+4. Upon clicking the end button you are redirected to 'http:localhost:8080/show-druation', here the time you started the course, finished the course, course name, and duration is displayed.
+5. In the event that you run into any errors during this workflow you will be redirected to 'http:localhost:8080/error-page', here you're notified you encountered an error. 
 ---------------------------------------
-
