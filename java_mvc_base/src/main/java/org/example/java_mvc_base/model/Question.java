@@ -3,7 +3,7 @@ package org.example.java_mvc_base.model;
 import jakarta.persistence.*;
 
 import java.util.List;
-
+// represents the questions of a course
 @Entity
 public class Question {
     @Id
@@ -11,11 +11,12 @@ public class Question {
     private int questionId;
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private Course course;
-    private String questionText;
+    private Course course; // the course the questions are part of
+    private String questionText; // the question that will be displayed
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    private List<Choice> choices;
+    private List<Choice> choices; // the different answer for the multiple choice questions
 
+    // getters and setters
     public int getQuestionId() {
         return questionId;
     }

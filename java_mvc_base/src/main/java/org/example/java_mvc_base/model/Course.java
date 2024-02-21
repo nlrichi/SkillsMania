@@ -4,15 +4,18 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+// represents the different courses
 @Entity
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int courseId;
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    private List<Question> questions;
+    private List<Question> questions; // the questions that belong to this course
     @Column(unique = true)
-    private String courseName;
+    private String courseName; // name of the course
+
+    // getters and setters
 
     public int getCourseId() {
         return courseId;

@@ -42,9 +42,6 @@ public class AvatarController {
     public String listAvatars(Model model, OAuth2AuthenticationToken token) {
         String username = (String) token.getPrincipal().getAttributes().get("given_name");
         User currentUser = userRepository.findUserByUsername(username);
-//        if (currentUser == null) {
-//            return "redirect:/error";
-//        }
         model.addAttribute("avatars", avatarRepository.findAll());
         model.addAttribute("currentAvatar", currentUser.getAvatar());
         return "avatarSelection";

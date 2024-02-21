@@ -3,6 +3,7 @@ package org.example.java_mvc_base.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
+// represents the different choices in multiple choice questions
 @Entity
 public class Choice {
     @Id
@@ -10,9 +11,11 @@ public class Choice {
     private int choiceId;
     @ManyToOne
     @JoinColumn(name = "question_id")
-    private Question question;
-    private String choiceText;
-    private boolean isTrue;
+    private Question question; // the question that the choice belongs to
+    private String choiceText; // what the choice will say
+    private boolean isTrue; // true if the choice is correct for the question
+
+    // getters and setters
 
     public int getChoiceId() {
         return choiceId;
