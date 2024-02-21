@@ -22,7 +22,7 @@
             // Redirect the current tab to the course URL after a short delay
             setTimeout(function() {
                 window.location.href = courseUrl;
-            }, 150); // Adjust the timeout as needed to ensure correct order of operations
+            }, 150);
         }
     </script>
 </head>
