@@ -74,5 +74,13 @@ insert 'http://localhost:8080'.
 
 **Log Out :** To logout from your account, click this link : http://localhost:8080/logout, which is also in the dashboard header formatted as the 'Log-Out' button.
 
+**Avatar Selection Page**
+1. On the dashboard navigation bar there is a button to navigate to 'http:localhost:8080/avatars'.
+2. Upon arrival at the Avatar Selection page, you will see your current avatar displayed alongside available avatars for selection.
+3. Here you can select an avatar if you have not already and it will appear as the current avatar and will be linked to your user.
+4. if you wish to change your avatar, all you have to do is navigate back to the avatar selection and select a diffrent avatar.
+5. If you encounter any issues while selecting an avatar, please ensure you are logged in and have a stable internet connection.
+
+
 ---------------------------------------
 
