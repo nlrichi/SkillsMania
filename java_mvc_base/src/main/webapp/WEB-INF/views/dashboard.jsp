@@ -122,7 +122,7 @@
             <!--Avatar display and log out -->
             <div class="rightside">
                 <a href=http://localhost:8080/avatars><li>Your Avatar</li></a>
-                <a href="localhost:8080/logout"><li>Log out</li></a>
+                <a href="http://localhost:8080/logout"><li>Log out</li></a>
             </div>
         </div>
     </ul>
