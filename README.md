@@ -74,6 +74,12 @@ insert 'http://localhost:8080'.
 
 **Log Out :** To logout from your account, click this link : http://localhost:8080/logout, which is also in the dashboard header formatted as the 'Log-Out' button.
 
+**Dashboard**
+1. After logging in/registering, you will now have access to the dashboard where you can access the rest of the web application
+2. On the navigation bar at the top, there are links to the avatar selection page and the League table page.
+3. In addition to this there is a welcome message with your username and the number of days you have used the system consecutively  in the form of a "streak".
+4. Underneath the navigation bar, there are links to each cocurse, the link will direct you to 'http:localhost:8080/startCourse'.
+
 **Avatar Selection Page**
 1. On the dashboard navigation bar there is a button to navigate to 'http:localhost:8080/avatars'.
 2. Upon arrival at the Avatar Selection page, you will see your current avatar displayed alongside available avatars for selection.
