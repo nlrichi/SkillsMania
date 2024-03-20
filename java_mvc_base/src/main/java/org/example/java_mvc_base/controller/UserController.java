@@ -36,11 +36,19 @@ public class UserController {
         Goal selectedGoal = goalRepository.findById((goalId))
                 .orElseThrow(() -> new RuntimeException("Goal not found"));
 
-        UserGoal userGoal = new UserGoal();
-        userGoal.setUser(currentUser);
-        userGoal.setGoal(selectedGoal);
-        userGoal.setIsCompleted(false); // Initially, the goal is not completed
-        userGoalRepository.save(userGoal);
+        boolean goalAlreadySelected = userGoalRepository.findByUserAndGoal(currentUser, selectedGoal).isPresent();
+
+        if (goalAlreadySelected) {
+            // If goal is already selected, do not add it again and redirect with a message
+            redirectAttributes.addFlashAttribute("error", "You have already selected this goal.");
+            return "redirect:/goals/list"; // Use the correct redirect mapping
+        } else {
+            UserGoal userGoal = new UserGoal();
+            userGoal.setUser(currentUser);
+            userGoal.setGoal(selectedGoal);
+            userGoal.setIsCompleted(false); // Initially, the goal is not completed
+            userGoalRepository.save(userGoal);
+        }
 
         return "redirect:/users/" + username + "/goals"; // Redirect to the page showing the user's goals
     }

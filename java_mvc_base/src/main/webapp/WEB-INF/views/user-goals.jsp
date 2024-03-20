@@ -10,41 +10,46 @@
             background-color: #f4f4f4;
             color: #333;
         }
-
         h2 {
             color: #444;
         }
-
         table {
             width: 100%;
             margin-top: 20px;
             border-collapse: collapse;
         }
-
         th, td {
             text-align: left;
             padding: 8px;
             border-bottom: 1px solid #ddd;
         }
-
         th {
             background-color: #4CAF50;
             color: white;
         }
-
         tr:hover {
             background-color: #f5f5f5;
         }
-
         .completed {
             color: green;
         }
-
         .in-progress {
             color: orange;
         }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ddd;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .back-link:hover {
+            background-color: #ccc;
+        }
     </style>
-
 </head>
 <body>
 <h2>Your Goals</h2>
@@ -66,7 +71,10 @@
         </tr>
     </c:forEach>
 </table>
+<a href="http://localhost:8080/dashboard" class="back-link">Back to Dashboard</a>
+<a href="http://localhost:8080/goals/list" class="back-link">Back to List Goals</a>
 </body>
 </html>
+
 
 
