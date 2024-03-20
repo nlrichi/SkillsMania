@@ -45,11 +45,12 @@ public class CourseInitializer {
                 String falseChoice1Text = record.get("falseChoice1");
                 String falseChoice2Text = record.get("falseChoice2");
                 String falseChoice3Text = record.get("falseChoice3");
+                String courseLink = record.get("link");
+                String coursePic = record.get("image");
 
                 Course course = courseRepository.findByCourseName(courseName);
                 if (course == null) {
-                    course = new Course();
-                    course.setCourseName(courseName);
+                    course = new Course(courseName, coursePic, courseLink);
                     courseRepository.save(course);
                 }
 

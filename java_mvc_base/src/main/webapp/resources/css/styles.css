@@ -99,4 +99,26 @@ img {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* Back to Dashboard Link Styles */
+.back-to-dashboard {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dashboard-link {
+    display: inline-block;
+    background-color: #007bff; /* Primary button color */
+    color: #ffffff; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    text-decoration: none; /* Removes underline from links */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Make the text bold */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.dashboard-link:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+    color: #ffffff; /* Keeps text color the same */
+}
+
 

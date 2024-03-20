@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class User {
@@ -18,17 +19,33 @@ public class User {
     private Date lastLoggedIn = Date.valueOf(LocalDate.now());
     private int finalLeaguePosition;
     private int leagueId;
-    private String leagueTier;
+    private String leagueTier = "Bronze";
     private boolean usersleagueEnded;
-    private int leagueXP;
+    private int leagueXP = 0;
+    @ManyToMany
+    private List<Course> courses;
     @OneToOne
     @JoinColumn(name = "avatar_id") // This creates a column in the User table for the Avatar ID.
     private Avatar avatar;
 
     // Getters and setters for all fields
 
+
+
     public String getUsername() {
         return username;
+    }
+
+    public void setLastLoggedIn(Date lastLoggedIn) {
+        this.lastLoggedIn = lastLoggedIn;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 
     public void setUsername(String username) {
