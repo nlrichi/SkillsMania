@@ -1,6 +1,8 @@
 package org.example.java_mvc_base.controller;
 //relevant imports as needed
+
 import org.example.java_mvc_base.model.Course;
+import jakarta.servlet.http.HttpSession;
 import org.example.java_mvc_base.model.User;
 import org.example.java_mvc_base.repo.CourseRepository;
 import org.example.java_mvc_base.repo.UserRepository;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Controller
 public class WebController {
@@ -38,7 +41,8 @@ public class WebController {
     //to retrieve info such as the username, email etc. Returns the dashboard JSP as requested.
     @GetMapping("/dashboard")
     @PreAuthorize("hasAuthority('SCOPE_profile')")
-    public String userDetails(Model model, OAuth2AuthenticationToken token) {
+    public String userDetails(Model model, OAuth2AuthenticationToken token, HttpSession session) {
+
 
         String name = (String) token.getPrincipal().getAttributes().get("given_name");
         User loggedInUser = userRepository.findUserByUsername(name);
@@ -50,6 +54,10 @@ public class WebController {
             loggedInUser.setLastLoggedIn();
             userRepository.save(loggedInUser);
         }
+
+        // Set loggedInUser into the session
+        session.setAttribute("loggedInUser", loggedInUser);
+
         model.addAttribute("streak", loggedInUser.getCurrentStreak());
         model.addAttribute("username", token.getPrincipal().getName());
         model.addAttribute("details", token.getPrincipal().getAttributes());
@@ -57,10 +65,23 @@ public class WebController {
                 token.getPrincipal().getAttributes().get("given_name"));
         model.addAttribute("principal_email",
                 token.getPrincipal().getAttributes().get("preferred_username"));
+
         List<Course> courses = (List<Course>) c_repo.findAll();
         courses.sort(Comparator.comparingInt(Course::getPopularity));
         model.addAttribute("courses", courses);
+        //raza comment
+        double completionPercentage = calculateCompletionPercentage(loggedInUser);
+        model.addAttribute("completionPercentage", completionPercentage);
+
+
         return "dashboard";
+    }
+//raza comment
+    private double calculateCompletionPercentage(User user) {
+        Set<String> completedCourses = user.getCompletedCourses();
+        int totalCourses = 5; // Assuming you have 5 courses in total
+        int completedCount = completedCourses.size();
+        return (double) completedCount / totalCourses * 100;
     }
 
 }

@@ -38,6 +38,11 @@ function compareByPopularity(a, b){
 
 
      }
+     let filter_button = document.getElementsByClassName("filter-btn")[0]
+     filter_button.innerHTML = "Filtered!"
+     filter_button.setAttribute("style",
+         "background-color: #ed4824; color: white;")
+
      console.log("Finished filtering!")
 
  }

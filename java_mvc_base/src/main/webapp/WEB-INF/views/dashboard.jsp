@@ -8,6 +8,31 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/dashboard/dashboard.css">
     <script src="${pageContext.request.contextPath}/dashboard/dashboard.js"></script>
     <title>Your Dashboard</title>
+
+    <style>
+
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .progress {
+            width: ${completionPercentage}%;
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+
+    </style>
+
 </head>
 <body>
     <div class="header">
@@ -34,13 +59,21 @@
         </ul>
     </div>
 
+    <!-- Progress bar -->
+    <div class="progress-bar">
+        <div class="progress">
+            <!-- Display completion percentage dynamically -->
+            ${completionPercentage}%
+        </div>
+    </div>
     <br>
 
-    <div class="dropdown">
-        <button onclick="filterBy('popular')" class="filter-btn">Filter by popularity</button>
-    </div>
+
+
+    <button onclick="filterBy('popular')" class="filter-btn">Filter by popularity</button>
+
     <!-- Course table and heading-->
-    <div id="courses" class="courses_container">
+    <div id="course_cont" class="courses_container">
         <h2 style="align-self: center">Available Courses</h2>
 
         <div class="course_cards">
@@ -57,6 +90,14 @@
 
 
         </div>
+
     </div>
+
+    </ul>
+</div>
+
+
+<br>
+
 </body>
 </html>
