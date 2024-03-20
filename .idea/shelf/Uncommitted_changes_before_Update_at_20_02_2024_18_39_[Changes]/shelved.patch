@@ -1,0 +1,103 @@
+Index: java_mvc_base/src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring.mvc.view.prefix= /WEB-INF/views/\r\nspring.mvc.view.suffix= .jsp\r\n#the below properties and tokens are admissioned by Okta to implement the 0Auth2 Technology in this\r\n#spring boot application.\r\nokta.oauth2.issuer=https://dev-36504668.okta.com/oauth2/default\r\nokta.oauth2.client-id=0oaesd30m9pcvKz9o5d7\r\nokta.oauth2.client-secret=pQ_nCj4KdxG5ZvrZkFCU1hD5p-u_o4y9lmJJudFyUrFnKdbEO2vxqNKAyUUCtmLV\r\nokta.oauth2.redirect-uri=/authorization-code/callback\r\nokta.oauth2.postLogoutRedirectUri=http://localhost:8080/\r\n\r\nspring.datasource.url=jdbc:mysql://localhost:3306/co2103db\r\nspring.datasource.username=co2103\r\nspring.datasource.password=password\r\n\r\nspring.jpa.hibernate.ddl-auto=create-drop\r\nspring.jpa.show-sql=true\r\nlogging.level.org.hibernate.SQL=debug
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/java_mvc_base/src/main/resources/application.properties b/java_mvc_base/src/main/resources/application.properties
+--- a/java_mvc_base/src/main/resources/application.properties	(revision 44887abb8ccc8aec84e79762f458356e84d27d91)
++++ b/java_mvc_base/src/main/resources/application.properties	(date 1708443978657)
+@@ -9,7 +9,7 @@
+ okta.oauth2.postLogoutRedirectUri=http://localhost:8080/
+ 
+ spring.datasource.url=jdbc:mysql://localhost:3306/co2103db
+-spring.datasource.username=co2103
++spring.datasource.username=root
+ spring.datasource.password=password
+ 
+ spring.jpa.hibernate.ddl-auto=create-drop
+Index: java_mvc_base/src/main/webapp/WEB-INF/views/endCourse.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>End Course</title>\r\n</head>\r\n<body>\r\n<h2>End Course</h2>\r\n<p>Click the end button when once you have completed the course.</p>\r\n<form action=\"/end-button\" method=\"post\">\r\n    <input type=\"submit\" value=\"End Course\">\r\n</form>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/java_mvc_base/src/main/webapp/WEB-INF/views/endCourse.jsp b/java_mvc_base/src/main/webapp/WEB-INF/views/endCourse.jsp
+--- a/java_mvc_base/src/main/webapp/WEB-INF/views/endCourse.jsp	(revision 44887abb8ccc8aec84e79762f458356e84d27d91)
++++ b/java_mvc_base/src/main/webapp/WEB-INF/views/endCourse.jsp	(date 1708440343855)
+@@ -7,6 +7,15 @@
+ <body>
+ <h2>End Course</h2>
+ <p>Click the end button when once you have completed the course.</p>
++<%
++    // Retrieve and execute the JavaScript script from session attribute
++    String endCourseScript = (String) session.getAttribute("endCourseScript");
++    if (endCourseScript != null) {
++        out.println(endCourseScript);
++        // Remove the script from session attribute
++        session.removeAttribute("endCourseScript");
++    }
++%>
+ <form action="/end-button" method="post">
+     <input type="submit" value="End Course">
+ </form>
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/Spring 1.iml\" filepath=\"$PROJECT_DIR$/.idea/Spring 1.iml\" />\r\n    </modules>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+--- a/.idea/modules.xml	(revision 44887abb8ccc8aec84e79762f458356e84d27d91)
++++ b/.idea/modules.xml	(date 1708395981106)
+@@ -3,6 +3,9 @@
+   <component name="ProjectModuleManager">
+     <modules>
+       <module fileurl="file://$PROJECT_DIR$/.idea/Spring 1.iml" filepath="$PROJECT_DIR$/.idea/Spring 1.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_mvc_base.iml" filepath="$PROJECT_DIR$/.idea/modules/java_mvc_base.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_mvc_base.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java_mvc_base.main.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java_mvc_base.test.iml" filepath="$PROJECT_DIR$/.idea/modules/java_mvc_base.test.iml" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 44887abb8ccc8aec84e79762f458356e84d27d91)
++++ b/.idea/misc.xml	(date 1708436277419)
+@@ -1,5 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="FrameworkDetectionExcludesConfiguration">
++    <file type="web" url="file://$PROJECT_DIR$/java_mvc_base" />
++  </component>
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+Index: java_mvc_base/gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>distributionBase=GRADLE_USER_HOME\r\ndistributionPath=wrapper/dists\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-8.4-bin.zip\r\nnetworkTimeout=10000\r\nvalidateDistributionUrl=true\r\nzipStoreBase=GRADLE_USER_HOME\r\nzipStorePath=wrapper/dists\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/java_mvc_base/gradle/wrapper/gradle-wrapper.properties b/java_mvc_base/gradle/wrapper/gradle-wrapper.properties
+--- a/java_mvc_base/gradle/wrapper/gradle-wrapper.properties	(revision 44887abb8ccc8aec84e79762f458356e84d27d91)
++++ b/java_mvc_base/gradle/wrapper/gradle-wrapper.properties	(date 1708443405020)
+@@ -1,6 +1,6 @@
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-8.4-bin.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-8.5-bin.zip
+ networkTimeout=10000
+ validateDistributionUrl=true
+ zipStoreBase=GRADLE_USER_HOME
