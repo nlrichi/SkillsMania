@@ -2,7 +2,13 @@ package org.example.java_mvc_base.controller;
 
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.example.java_mvc_base.model.User;
+import org.example.java_mvc_base.model.UserGoal;
+import org.example.java_mvc_base.repo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
+import org.example.java_mvc_base.repo.UserGoalRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,9 +18,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Controller
 public class DurationController {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserGoalRepository userGoalRepository;
 
     @GetMapping("/start-course-page")//
     public String startPage(@RequestParam("course") String course, Model model) {
@@ -48,7 +61,14 @@ public class DurationController {
 
 
     @PostMapping("/end-button")//this is what happens when a user clicks the end course button
-    public String endCourse(HttpSession session, Model model) {
+    public String endCourse(HttpSession session, Model model, OAuth2AuthenticationToken token) {
+
+        String username = (String) token.getPrincipal().getAttributes().get("given_name");
+        User user = userRepository.findUserByUsername(username);
+        if (user == null) {
+            return "redirect:/error-page";
+        }
+
         // Retrieve start time from session
         Instant startTime = (Instant) session.getAttribute("startTime");
         if (startTime == null) {
@@ -62,7 +82,27 @@ public class DurationController {
         session.setAttribute("duration", durationSeconds);
         model.addAttribute("startTime", DateTimeFormatter.ISO_INSTANT.format(startTime));//format start and end time
         model.addAttribute("endTime", DateTimeFormatter.ISO_INSTANT.format(endTime));
+
+        List<UserGoal> activeGoals = userGoalRepository.findByUserAndIsCompleted(user, false);
+        for (UserGoal userGoal : activeGoals) {
+            updateGoalProgress(userGoal);
+        }
+
         return "duration"; // Directly return the view name, assuming model attributes are accessible
+    }
+
+    private void updateGoalProgress(UserGoal userGoal) {
+        // Increment progress
+        userGoal.incrementProgress(); // This method needs to be added to UserGoal to manage progress
+
+        // Check if the goal is completed
+        if (userGoal.getProgress() >= userGoal.getGoal().getTargetCount()) {
+            userGoal.setIsCompleted(true);
+            userGoal.getUser().incrementXp(userGoal.getGoal().getXpReward()); // Increment XP for the user
+            userRepository.save(userGoal.getUser());
+        }
+
+        userGoalRepository.save(userGoal);
     }
 
 

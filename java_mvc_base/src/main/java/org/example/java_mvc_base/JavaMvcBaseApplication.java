@@ -78,7 +78,7 @@ public class JavaMvcBaseApplication {
 			// Define and save the goals if they don't exist
 			goalRepository.saveAll(List.of(
 					new Goal("Complete one course in a day", "daily", 1, 100),
-					new Goal("Complete two courses in a week", "weekly", 1, 300),
+					new Goal("Complete two courses in a week", "weekly", 2, 300),
 					new Goal("Complete three courses in a month", "monthly", 3, 500)
 			));
 		}

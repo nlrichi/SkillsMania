@@ -134,6 +134,10 @@ public class User {
         userGoal.setUser(null);
     }
 
+    public void incrementXp(int xp) {
+        this.overallXp += xp;
+    }
+
     public void setLastLoggedIn() {
         LocalDate today = LocalDate.now();
         LocalDate dayAfterLastLogin = this.lastLoggedIn.toLocalDate().plusDays(1);

@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface UserGoalRepository extends CrudRepository<UserGoal, Integer> {
     List<UserGoal> findByUser(User user);
+
+    List<UserGoal> findByUserAndIsCompleted(User user, boolean isCompleted);
 }

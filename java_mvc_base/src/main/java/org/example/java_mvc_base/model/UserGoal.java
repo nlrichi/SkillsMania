@@ -8,6 +8,8 @@ public class UserGoal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userGoalId;
 
+    private int progress = 0;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
@@ -34,6 +36,10 @@ public class UserGoal {
         return user;
     }
 
+    public void incrementProgress() {
+        this.progress++;
+    }
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -46,13 +52,19 @@ public class UserGoal {
         this.goal = goal;
     }
 
-    public boolean isCompleted() {
+    public boolean getIsCompleted() {
         return isCompleted;
     }
-
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
+    public void setIsCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
 }
 

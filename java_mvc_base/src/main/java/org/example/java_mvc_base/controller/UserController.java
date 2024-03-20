@@ -8,6 +8,7 @@ import org.example.java_mvc_base.repo.UserGoalRepository;
 import org.example.java_mvc_base.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -28,17 +29,17 @@ public class UserController {
     private UserGoalRepository userGoalRepository;
 
     @PostMapping("/setGoal")
-    public String setGoal(@RequestParam Long goalId, Principal principal, RedirectAttributes redirectAttributes) {
-        String username = principal.getName(); // Assuming the username is the same as the principal name
-        User user = userRepository.findUserByUsername(username);
+    public String setGoal(@RequestParam Long goalId, Principal principal, RedirectAttributes redirectAttributes, OAuth2AuthenticationToken token) {
+        String username = (String) token.getPrincipal().getAttributes().get("given_name");
+        User currentUser = userRepository.findUserByUsername(username);
 
         Goal selectedGoal = goalRepository.findById((goalId))
                 .orElseThrow(() -> new RuntimeException("Goal not found"));
 
         UserGoal userGoal = new UserGoal();
-        userGoal.setUser(user);
+        userGoal.setUser(currentUser);
         userGoal.setGoal(selectedGoal);
-        userGoal.setCompleted(false); // Initially, the goal is not completed
+        userGoal.setIsCompleted(false); // Initially, the goal is not completed
         userGoalRepository.save(userGoal);
 
         return "redirect:/users/" + username + "/goals"; // Redirect to the page showing the user's goals
