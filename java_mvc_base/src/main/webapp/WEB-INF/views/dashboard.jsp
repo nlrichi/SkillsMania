@@ -100,6 +100,24 @@
             padding: 10px 10px 10px;
         }
 
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .progress {
+            width: ${completionPercentage}%;
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
 
     </style>
 </head>
@@ -126,6 +144,13 @@
             </div>
         </div>
     </ul>
+</div>
+<!-- Progress bar -->
+<div class="progress-bar">
+    <div class="progress">
+        <!-- Display completion percentage dynamically -->
+        ${completionPercentage}%
+    </div>
 </div>
 
 <br>

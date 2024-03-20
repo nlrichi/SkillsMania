@@ -5,12 +5,29 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
+
+    //raza comment
+    @ElementCollection
+    private Set<String> completedCourses = new HashSet<>();
+
+    // Getters and setters for username and completedCourses
+//raza comment
+    public Set<String> getCompletedCourses() {
+        return completedCourses;
+    }
+    //raza comment
+    public void setCompletedCourses(Set<String> completedCourses) {
+        this.completedCourses = completedCourses;
+    }
+
     @Column(unique = true)
     private String username;
     private int currentStreak = 0;
