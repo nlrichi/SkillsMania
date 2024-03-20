@@ -82,7 +82,8 @@
                     <a href="${course.link}"><img class="CoursePic" src="${course.pic}"/></a>
                     <div class="container">
                         <p class="course_card_text">${course.courseName}</p>
-                        <p class="popularity_tag">(taken by ${course.getPopularity()} users)</p>
+                        <p class="popularity_tag">(taken by ${course.getPopularity()}
+                            ${course.getPopularity() == 1 ? "user": "users"})</p>
                     </div>
                 </div>
             </c:forEach>
