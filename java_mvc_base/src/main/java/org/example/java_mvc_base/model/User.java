@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -24,6 +27,13 @@ public class User {
     @OneToOne
     @JoinColumn(name = "avatar_id") // This creates a column in the User table for the Avatar ID.
     private Avatar avatar;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<UserGoal> userGoals = new HashSet<>();
+
+    public User() {}
+
+
 
     // Getters and setters for all fields
 
@@ -91,6 +101,9 @@ public class User {
         this.overallXp = overallXp;
     }
 
+
+    
+
     public Avatar getAvatar() {
         return avatar;
     }
@@ -101,6 +114,24 @@ public class User {
 
     public Date getLastLoggedIn() {
         return lastLoggedIn;
+    }
+
+    public Set<UserGoal> getUserGoals() {
+        return userGoals;
+    }
+
+    public void setUserGoals(Set<UserGoal> userGoals) {
+        this.userGoals = userGoals;
+    }
+
+    public void addUserGoal(UserGoal userGoal) {
+        userGoals.add(userGoal);
+        userGoal.setUser(this);
+    }
+
+    public void removeUserGoal(UserGoal userGoal) {
+        userGoals.remove(userGoal);
+        userGoal.setUser(null);
     }
 
     public void setLastLoggedIn() {

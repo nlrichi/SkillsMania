@@ -1,14 +1,19 @@
 package org.example.java_mvc_base;
 
+import jakarta.annotation.PostConstruct;
 import org.example.java_mvc_base.model.Avatar;
+import org.example.java_mvc_base.model.Goal;
 import org.example.java_mvc_base.model.LeagueUpdateThread;
 import org.example.java_mvc_base.repo.AvatarRepository;
+import org.example.java_mvc_base.repo.GoalRepository;
 import org.example.java_mvc_base.repo.LeagueTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.List;
 
 @SpringBootApplication
 public class JavaMvcBaseApplication {
@@ -23,6 +28,9 @@ public class JavaMvcBaseApplication {
 
 	@Autowired
 	private AvatarRepository avatarRepository;
+
+	@Autowired
+	private GoalRepository goalRepository;
 
 	@Autowired
 	LeagueTableRepository league_repo;
@@ -60,6 +68,20 @@ public class JavaMvcBaseApplication {
 				avatarRepository.save(avatar3);
 			}
 		};
+
+	}
+
+	@PostConstruct
+	public void initGoals() {
+		// Check if goals already exist to avoid duplication
+		if (goalRepository.count() == 0) {
+			// Define and save the goals if they don't exist
+			goalRepository.saveAll(List.of(
+					new Goal("Complete one course in a day", "daily", 1, 100),
+					new Goal("Complete two courses in a week", "weekly", 1, 300),
+					new Goal("Complete three courses in a month", "monthly", 3, 500)
+			));
+		}
 	}
 }
 
