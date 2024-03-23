@@ -16,16 +16,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
-    //raza comment
+    // define a collection (hashset used here) to store completed courses
     @ElementCollection
     private Set<String> completedCourses = new HashSet<>();
 
-    // Getters and setters for username and completedCourses
-//raza comment
+    // Getters and setters for completedCourses
+
     public Set<String> getCompletedCourses() {
         return completedCourses;
     }
-    //raza comment
+
     public void setCompletedCourses(Set<String> completedCourses) {
         this.completedCourses = completedCourses;
     }

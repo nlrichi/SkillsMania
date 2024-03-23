@@ -19,7 +19,7 @@
             border-radius: 5px;
             margin-bottom: 10px;
         }
-
+        /*progress bar styling, you can see that we use completionPercentage to define the green width*/
         .progress {
             width: ${completionPercentage}%;
             height: 100%;
@@ -62,7 +62,7 @@
     <!-- Progress bar -->
     <div class="progress-bar">
         <div class="progress">
-            <!-- Display completion percentage dynamically -->
+            <!-- Display completion percentage passed through by controller -->
             ${completionPercentage}%
         </div>
     </div>

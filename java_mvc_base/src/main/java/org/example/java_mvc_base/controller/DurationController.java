@@ -120,7 +120,7 @@ public class DurationController {
 
 
 
-        //raza comment
+        // retrieving the logged in users username and matching to repository
         String username = (String) session.getAttribute("username");
 //        User loggedInUser = userRepository.findUserByUsername(username);
 
@@ -134,10 +134,14 @@ public class DurationController {
         }
         String completedCourse = (String) session.getAttribute("course");
 
-        //raza comment
+        // add the currently accessed course to the completed courses list for the logged-in user
+        // now we get the list of completed courses for the logged-in user
         Set<String> completedCourses = loggedInUser.getCompletedCourses();
+        // Add the current course to the completed courses list
         completedCourses.add((String) session.getAttribute("course"));
+        // update the completed courses list for the logged-in user
         loggedInUser.setCompletedCourses(completedCourses);
+        // save the users info in the repo
         userRepo.save(loggedInUser);
 
 

@@ -69,19 +69,20 @@ public class WebController {
         List<Course> courses = (List<Course>) c_repo.findAll();
         courses.sort(Comparator.comparingInt(Course::getPopularity));
         model.addAttribute("courses", courses);
-        //raza comment
+        // Calculate the percentage of completed courses for the logged-in user
+        // and add it to the model attribute
         double completionPercentage = calculateCompletionPercentage(loggedInUser);
         model.addAttribute("completionPercentage", completionPercentage);
 
 
         return "dashboard";
     }
-//raza comment
+    // function to calculate the completion percentage of courses for a user
     private double calculateCompletionPercentage(User user) {
-        Set<String> completedCourses = user.getCompletedCourses();
-        int totalCourses = 5; // Assuming you have 5 courses in total
-        int completedCount = completedCourses.size();
-        return (double) completedCount / totalCourses * 100;
+        Set<String> completedCourses = user.getCompletedCourses(); //retrieve the completed courses of the user
+        int totalCourses = 5; // as we have 5 courses in total
+        int completedCount = completedCourses.size(); //retrieve count of completed courses
+        return (double) completedCount / totalCourses * 100; //calculate and return the % of completion
     }
 
 }
