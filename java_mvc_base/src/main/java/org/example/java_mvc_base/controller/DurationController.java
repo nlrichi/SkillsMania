@@ -15,7 +15,15 @@ import org.example.java_mvc_base.model.User;
 import org.example.java_mvc_base.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
+import org.example.java_mvc_base.model.User;
+import org.example.java_mvc_base.model.UserGoal;
+import org.example.java_mvc_base.repo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+
 import org.springframework.stereotype.Controller;
+import org.example.java_mvc_base.repo.UserGoalRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +33,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import java.util.Objects;
 
@@ -34,14 +43,18 @@ import java.util.Set;
 @Controller
 public class DurationController {
 
-    @Autowired
 
-    private UserRepository userRepo;
 
     @Autowired
     private CourseRepository courseRepo;
 
 
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserGoalRepository userGoalRepository;
 
 
     @GetMapping("/start-course-page")//
@@ -52,6 +65,7 @@ public class DurationController {
 
 
     @PostMapping("/start-button")// this is what happens when the user clicks the start course button
+
     public String startCourse(@RequestParam("course") String course, HttpSession session, OAuth2AuthenticationToken token) {
         // Record start time and store start time in session
         session.setAttribute("startTime", Instant.now());
@@ -67,11 +81,11 @@ public class DurationController {
             Course target_course_object = courseRepo.findByLink(raw_endpoint + course);
 
             String fetched_name = (String) token.getPrincipal().getAttributes().get("given_name");
-            User current_user = userRepo.findUserByUsername(fetched_name);
+            User current_user = userRepository.findUserByUsername(fetched_name);
             if (Objects.isNull(current_user)){
                 current_user = new User();
                 current_user.setUsername(fetched_name);
-                current_user = userRepo.save(current_user);
+                current_user = userRepository.save(current_user);
             }
 
             //Engage the course and the user in a many-to-many relationship if the
@@ -81,7 +95,7 @@ public class DurationController {
                 target_course_object.getCourseTakers().add(current_user);
                 current_user.getCourses().add(target_course_object);
                 courseRepo.save(target_course_object);
-                userRepo.save(current_user);
+                userRepository.save(current_user);
             }
 
             // Set a brief pause to allow the client-side code to open the end-course tab before redirecting
@@ -100,7 +114,19 @@ public class DurationController {
 
 
     @PostMapping("/end-button")//this is what happens when a user clicks the end course button
-    public String endCourse(HttpSession session, Model model) {
+
+
+
+
+
+
+    public String endCourse(HttpSession session, Model model, OAuth2AuthenticationToken token) {
+
+        String username = (String) token.getPrincipal().getAttributes().get("given_name");
+        User user = userRepository.findUserByUsername(username);
+        if (user == null) {
+            return "redirect:/error-page";
+        }
 
 
         // Retrieve start time from session
@@ -120,12 +146,13 @@ public class DurationController {
 
 
 
+
         //raza comment
-        String username = (String) session.getAttribute("username");
-//        User loggedInUser = userRepository.findUserByUsername(username);
+        //String username = (String) session.getAttribute("username");
+        User loggedInUser = userRepository.findUserByUsername(username);
 
         // Retrieve logged-in user from session
-        User loggedInUser = (User) session.getAttribute("loggedInUser");
+        //User loggedInUser = (User) session.getAttribute("loggedInUser");
 
         // Check if logged-in user is null
         if (loggedInUser == null) {
@@ -138,10 +165,31 @@ public class DurationController {
         Set<String> completedCourses = loggedInUser.getCompletedCourses();
         completedCourses.add((String) session.getAttribute("course"));
         loggedInUser.setCompletedCourses(completedCourses);
-        userRepo.save(loggedInUser);
+        userRepository.save(loggedInUser);
+
+
+        List<UserGoal> activeGoals = userGoalRepository.findByUserAndIsCompleted(user, false);
+        for (UserGoal userGoal : activeGoals) {
+            updateGoalProgress(userGoal);
+        }
 
 
         return "duration"; // Directly return the view name, assuming model attributes are accessible
+    }
+
+    private void updateGoalProgress(UserGoal userGoal) {
+        // Increment progress
+        userGoal.incrementProgress(); // This method needs to be added to UserGoal to manage progress
+
+        // Check if the goal is completed
+        if (userGoal.getProgress() >= userGoal.getGoal().getTargetCount()) {
+            userGoal.setIsCompleted(true);
+            userGoal.getUser().incrementXp(userGoal.getGoal().getXpReward()); // Increment XP for the user
+            userRepository.save(userGoal.getUser());
+            System.out.println("XP GIVEN. NOW EQUALS " + userGoal.getUser().getOverallXp());
+        }
+
+        userGoalRepository.save(userGoal);
     }
 
 
