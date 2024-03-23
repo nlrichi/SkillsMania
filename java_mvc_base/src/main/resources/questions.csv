@@ -1,6 +1,6 @@
-course,question,trueChoice,falseChoice1,falseChoice2,falseChoice3
-Data Analyst,what is a data analyst?,"someone who collects, prepares, and analyses data.",ackee,bannana,cherry
-Cybersecurity,what is cybersecurity?,measure or practice for preventing cyberattacks or mitigating their impact.,date,eggplant,fig
-Information Technology,what is it?,Information technology is a set of related fields that encompass computer,grape,huckleberry,jackfruit
-Project Management,what is Project Management?,Project management is the process of leading the work of a team to achieve all project goals within the given constraints.,kiwi,Lemon,Mango
-Web Development,what is Web Development?,Web development is the work involved in developing a website for the Internet or an intranet.,nance,olive,peach
+course,image,link,question,trueChoice,falseChoice1,falseChoice2,falseChoice3
+Data Analyst,/img/DataAnalyst-00.webp,/start-course-page?course=data-analyst,what is a data analyst?,"someone who collects, prepares, and analyses data.",ackee,bannana,cherry
+Cybersecurity,/img/ibmCyberSecurity.webp,/start-course-page?course=cybersecurity-analyst,what is cybersecurity?,measure or practice for preventing cyberattacks or mitigating their impact.,date,eggplant,fig
+Information Technology,/img/Information-Technology-Fundamentals-1.webp,/start-course-page?course=it-support-technician,what is it?,Information technology is a set of related fields that encompass computer,grape,huckleberry,jackfruit
+Project Management,/img/ProjectManager-00.webp,/start-course-page?course=project-manager,what is Project Management?,Project management is the process of leading the work of a team to achieve all project goals within the given constraints.,kiwi,Lemon,Mango
+Web Development,/img/Web_Development_Fundamentals-1-1.webp,/start-course-page?course=web-developer,what is Web Development?,Web development is the work involved in developing a website for the Internet or an intranet.,nance,olive,peach

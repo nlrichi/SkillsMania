@@ -1,7 +1,10 @@
 package org.example.java_mvc_base.controller;
 //relevant imports as needed
+
+import org.example.java_mvc_base.model.Course;
 import jakarta.servlet.http.HttpSession;
 import org.example.java_mvc_base.model.User;
+import org.example.java_mvc_base.repo.CourseRepository;
 import org.example.java_mvc_base.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -10,6 +13,9 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -27,6 +33,8 @@ public class WebController {
         return "securedPage";
     }
 
+    @Autowired
+    private CourseRepository c_repo;
     @Autowired
     private UserRepository userRepository;
     //Dashboard controller, this uses OAuth2 Token which is made when signing up to the SkillsMania
@@ -57,9 +65,14 @@ public class WebController {
                 token.getPrincipal().getAttributes().get("given_name"));
         model.addAttribute("principal_email",
                 token.getPrincipal().getAttributes().get("preferred_username"));
+
+        List<Course> courses = (List<Course>) c_repo.findAll();
+        courses.sort(Comparator.comparingInt(Course::getPopularity));
+        model.addAttribute("courses", courses);
         //raza comment
         double completionPercentage = calculateCompletionPercentage(loggedInUser);
         model.addAttribute("completionPercentage", completionPercentage);
+
 
         return "dashboard";
     }

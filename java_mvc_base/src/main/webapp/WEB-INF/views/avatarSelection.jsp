@@ -9,6 +9,11 @@
 <div class="main-container"> <!-- Wrap your content in a main container for centering and padding -->
     <h2>Avatar Selection</h2>
 
+    <!-- Go Back to Dashboard link -->
+    <div class="back-to-dashboard">
+        <a href="${pageContext.request.contextPath}/dashboard" class="dashboard-link">Go Back to Dashboard</a>
+    </div>
+
     <!-- Display the current avatar if it exists -->
     <div class="current-avatar-section">
         <h3>Current Avatar</h3>

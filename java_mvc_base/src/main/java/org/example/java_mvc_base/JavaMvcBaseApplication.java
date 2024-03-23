@@ -1,10 +1,8 @@
 package org.example.java_mvc_base;
 
-import org.example.java_mvc_base.model.Avatar;
-import org.example.java_mvc_base.model.LeagueTable;
-import org.example.java_mvc_base.model.LeagueUpdateThread;
-import org.example.java_mvc_base.model.User;
+import org.example.java_mvc_base.model.*;
 import org.example.java_mvc_base.repo.AvatarRepository;
+import org.example.java_mvc_base.repo.CourseRepository;
 import org.example.java_mvc_base.repo.LeagueTableRepository;
 import org.example.java_mvc_base.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +29,9 @@ public class JavaMvcBaseApplication {
 
 	@Autowired
 	private AvatarRepository avatarRepository;
+
+	@Autowired
+	private CourseRepository c_repo;
 
 	@Autowired
 	LeagueTableRepository league_repo;
@@ -71,7 +72,7 @@ public class JavaMvcBaseApplication {
 				avatarRepository.save(avatar3);
 			}
 
-			List<String> names = new ArrayList<>(Arrays.asList("Jamie", "Ezekiel", "Mohammed",
+			/*List<String> names = new ArrayList<>(Arrays.asList("Jamie", "Ezekiel", "Mohammed",
 					"Dele", "Ayo", "John", "T_boy", "Helen", "Aisha", "Sophia", "Tom", "Jibril",
 					"Jeyda", "Erling", "Timothy", "Joyce", "Ethan", "Yusuf", "Lyla", "Gloria",
 					"Teddy", "Joshua", "Ashanti", "Claire", "Patrick", "Abdul", "Saira", "Kenny",
@@ -138,7 +139,30 @@ public class JavaMvcBaseApplication {
 
 				league3.getMembers().add(dummy);
 				league3 = league_repo.save(league3);
-			}
+			}*/
+
+			/*Course data_analyst = new Course("Data Analyst", "/img/DataAnalyst-00.webp",
+					"/start-course-page?course=data-analyst");
+			data_analyst = c_repo.save(data_analyst);
+
+			Course cyber_security = new Course("Cyber Security", "/img/ibmCyberSecurity.webp",
+					"/start-course-page?course=cybersecurity-analyst");
+			cyber_security = c_repo.save(cyber_security);
+
+			Course IT = new Course("Information Technology", "/img/Information-Technology-Fundamentals-1.webp",
+					"/start-course-page?course=it-support-technician");
+			IT = c_repo.save(IT);
+
+			Course proj_management = new Course("Project Management", "/img/ProjectManager-00.webp",
+					"/start-course-page?course=project-manager");
+			proj_management = c_repo.save(proj_management);
+
+			Course web_dev = new Course("Web Development", "/img/Web_Development_Fundamentals-1-1.webp",
+					"/start-course-page?course=web-developer");
+			web_dev = c_repo.save(web_dev);*/
+
+
+
 
 		};
 	}

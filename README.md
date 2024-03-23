@@ -74,6 +74,12 @@ insert 'http://localhost:8080'.
 
 **Log Out :** To logout from your account, click this link : http://localhost:8080/logout, which is also in the dashboard header formatted as the 'Log-Out' button.
 
+**Dashboard**
+1. After logging in/registering, you will now have access to the dashboard where you can access the rest of the web application
+2. On the navigation bar at the top, there are links to the avatar selection page and the League table page.
+3. In addition to this there is a welcome message with your username and the number of days you have used the system consecutively  in the form of a "streak".
+4. Underneath the navigation bar, there are links to each cocurse, the link will direct you to 'http:localhost:8080/startCourse'.
+
 **Avatar Selection Page**
 1. On the dashboard navigation bar there is a button to navigate to 'http:localhost:8080/avatars'.
 2. Upon arrival at the Avatar Selection page, you will see your current avatar displayed alongside available avatars for selection.
@@ -82,9 +88,24 @@ insert 'http://localhost:8080'.
 5. If you encounter any issues while selecting an avatar, please ensure you are logged in and have a stable internet connection.
 
 **Start time and completion time**
-1. On dashboard select a course from the available courses, clicking any of these will direct you to 'http:localhost:8080/startCourse'.
+1. On the dashboard select a course from the available courses, clicking any of these will direct you to 'http:localhost:8080/startCourse'.
 2. On this page there is a  start button, upon clicking that button you are redirected to the appropiate SkillsBuild course page in a new tab, simultaneously you are also redirected 'http:localhost:8080/endCourse'.
 3. This page is for tracking course completetion, when you finish the course on skillbuild, return to this page click the end button, it will store your end time in the session.
 4. Upon clicking the end button you are redirected to 'http:localhost:8080/show-druation', here the time you started the course, finished the course, course name, and duration is displayed.
 5. In the event that you run into any errors during this workflow you will be redirected to 'http:localhost:8080/error-page', here you're notified you encountered an error. 
+
+**League Tables system**
+1. On the dashboard, the button labelled "Leaderboard" redirects the user to 'http:localhost:8080/leaderboard'.
+2. League tables hold a maximum of 24 users, and every league has a lifespan of seven days. The remaining days are highlighted at the top
+3. At the end of the lifespan, the top 6 users get promoted to the next tier up if any, and the bottom 6 get relegated vice-versa and accordingly.
+4. There are 3 tiers namely in order: "Kings Intelligence", "Artificial Champions", and "Bronze". This is also highlighted at the top of the page
+5. If the user is new, they get added to a league of "Bronze" tier – the lowest tier league. If no leagues of Bronze tier that are currently within capacity of 24 users exist, a new one is created and added to the database with the current user included as a member.
+6. If the user has not visited the leaderboard endpoint since their league ended, they're presented with "notification.jsp" with informs them of their outcome. They can go on to their new league from that page by clicking the button labelled "LET'S GO" at the bottom.
+
+**Streak system**
+1. when a user first logs in they have a streak of 0
+2. for every consecutive day they log in there streek increases by 1 e.g. if you log in monday, tuesday and wednesday there streak will be 3
+3. if there user misses a day e.g. logs in monday and then wednesday there streek will reset to 0
+4. on the dashboard the streak is in the top left after you log in
+
 ---------------------------------------

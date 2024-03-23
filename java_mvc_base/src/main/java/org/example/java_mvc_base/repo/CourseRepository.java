@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 // go access courses from other java beans
 public interface CourseRepository extends CrudRepository<Course, String> {
     Course findByCourseName(String courseName);
+
+    Course findByLink(String link);
 }
