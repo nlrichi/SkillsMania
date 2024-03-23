@@ -2,19 +2,22 @@ package org.example.java_mvc_base.model;
 
 import jakarta.persistence.*;
 
+// a link table between users and courses that represent all the courses completed for that user
 @Entity
 public class CompletedCourses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int completedCoursedId;
-    private int secondsElapsed;
-    private int score;
+    private int secondsElapsed; // time taken to do the course
+    private int score; // how well they scored on the test
     @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "course_id")
-    private Course course;
+    private Course course; // the course that was taken
     @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_id")
-    private User user;
+    private User user; // the user that took the course
+
+    // getters and setters
 
     public int getCompletedCoursedId() {
         return completedCoursedId;
