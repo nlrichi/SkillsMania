@@ -50,7 +50,8 @@
                 <li>Hello, <strong>${principal_username}</strong></li>
                 <a href="http://localhost:8080/leaderboard"><li>Leaderboard</li></a>
                 <li>Current Streak ${streak}</li>
-                <li>Total Coins: ${totalCoins}</li> <!--Display the total coins a user has -->
+                <!--Display the total coins a user has -->
+                <li>Total Coins: ${totalCoins}</li>
                 <!--Avatar display and log out -->
                 <div class="rightside">
                     <a href=http://localhost:8080/avatars><li>Your Avatar</li></a>
