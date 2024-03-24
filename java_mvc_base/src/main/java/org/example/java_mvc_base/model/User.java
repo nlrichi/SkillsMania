@@ -46,6 +46,8 @@ public class User {
     @JoinColumn(name = "avatar_id") // This creates a column in the User table for the Avatar ID.
     private Avatar avatar;
 
+    private int totalCoins = 0; //This adds a new field totalCoins to the user entity the default value is 0.
+
     // Getters and setters for all fields
 
 
@@ -149,4 +151,8 @@ public class User {
         }
         this.lastLoggedIn = Date.valueOf(LocalDate.now());
     }
+
+    public int getTotalCoins() {return totalCoins;}
+
+    public void setTotalCoins(int totalCoins) {this.totalCoins = totalCoins;}
 }

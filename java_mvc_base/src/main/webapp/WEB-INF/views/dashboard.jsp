@@ -46,10 +46,11 @@
     <div class="navbar">
         <ul>
             <div>
-                <!--username display, leaderboard and streaks page-->
+                <!--username display, leaderboard, streaks page, and total coins-->
                 <li>Hello, <strong>${principal_username}</strong></li>
                 <a href="http://localhost:8080/leaderboard"><li>Leaderboard</li></a>
                 <li>Current Streak ${streak}</li>
+                <li>Total Coins: ${totalCoins}</li> <!--Display the total coins a user has -->
                 <!--Avatar display and log out -->
                 <div class="rightside">
                     <a href=http://localhost:8080/avatars><li>Your Avatar</li></a>

@@ -141,6 +141,10 @@ public class DurationController {
         completedCourses.add((String) session.getAttribute("course"));
         // update the completed courses list for the logged-in user
         loggedInUser.setCompletedCourses(completedCourses);
+        //Add 50 coins to the user's total coins everytime they complete a course
+        loggedInUser.setTotalCoins(loggedInUser.getTotalCoins() + 50);
+        //Update the model to include total coins
+        model.addAttribute("totalCoins", loggedInUser.getTotalCoins());
         // save the users info in the repo
         userRepo.save(loggedInUser);
 
