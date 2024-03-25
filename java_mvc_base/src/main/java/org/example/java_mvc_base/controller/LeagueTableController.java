@@ -28,7 +28,6 @@ public class LeagueTableController {
             current_user.setUsername(fetched_name);
             current_user.setOverallXp(0);
             current_user.setCurrentStreak(0);
-            current_user.setLeagueXP(2000);
             current_user = userRepo.save(current_user);
             current_user = findNewLeague(model, current_user);
             current_user = userRepo.save(current_user);
@@ -41,7 +40,6 @@ public class LeagueTableController {
 
                 current_user = userRepo.save(current_user);
                 user_league = leagueRepo.findByLeagueId(current_user.getLeagueId());
-                current_user.setLeagueXP(2000);
                 current_user = userRepo.save(current_user);
                 user_league = leagueRepo.findByLeagueId(current_user.getLeagueId());
             } else if (current_user.isUsersleagueEnded()) {
@@ -103,7 +101,7 @@ public class LeagueTableController {
                     model.addAttribute("situation", "bad");
                     model.addAttribute("logo", logo_path);
                     String message = "Bad luck! You finished " + pos + prefix + " and got" +
-                            " promoted to the " + current_user.getLeagueTier() + " league";
+                            " relegated to the " + current_user.getLeagueTier() + " league";
                     model.addAttribute("message", message);
                 }
                 return "notification";

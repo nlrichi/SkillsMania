@@ -1,8 +1,15 @@
 package org.example.java_mvc_base;
 
+
 import org.example.java_mvc_base.model.*;
 import org.example.java_mvc_base.repo.AvatarRepository;
 import org.example.java_mvc_base.repo.CourseRepository;
+import jakarta.annotation.PostConstruct;
+import org.example.java_mvc_base.model.Avatar;
+import org.example.java_mvc_base.model.Goal;
+import org.example.java_mvc_base.model.LeagueUpdateThread;
+import org.example.java_mvc_base.repo.AvatarRepository;
+import org.example.java_mvc_base.repo.GoalRepository;
 import org.example.java_mvc_base.repo.LeagueTableRepository;
 import org.example.java_mvc_base.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +18,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import java.util.List;
+
 
 @SpringBootApplication
 public class JavaMvcBaseApplication {
@@ -31,7 +42,12 @@ public class JavaMvcBaseApplication {
 	private AvatarRepository avatarRepository;
 
 	@Autowired
+
 	private CourseRepository c_repo;
+
+	@Autowired
+	private GoalRepository goalRepository;
+
 
 	@Autowired
 	LeagueTableRepository league_repo;
@@ -72,7 +88,7 @@ public class JavaMvcBaseApplication {
 				avatarRepository.save(avatar3);
 			}
 
-			/*List<String> names = new ArrayList<>(Arrays.asList("Jamie", "Ezekiel", "Mohammed",
+			List<String> names = new ArrayList<>(Arrays.asList("Jamie", "Ezekiel", "Mohammed",
 					"Dele", "Ayo", "John", "T_boy", "Helen", "Aisha", "Sophia", "Tom", "Jibril",
 					"Jeyda", "Erling", "Timothy", "Joyce", "Ethan", "Yusuf", "Lyla", "Gloria",
 					"Teddy", "Joshua", "Ashanti", "Claire", "Patrick", "Abdul", "Saira", "Kenny",
@@ -139,32 +155,27 @@ public class JavaMvcBaseApplication {
 
 				league3.getMembers().add(dummy);
 				league3 = league_repo.save(league3);
-			}*/
+			}
 
-			/*Course data_analyst = new Course("Data Analyst", "/img/DataAnalyst-00.webp",
-					"/start-course-page?course=data-analyst");
-			data_analyst = c_repo.save(data_analyst);
-
-			Course cyber_security = new Course("Cyber Security", "/img/ibmCyberSecurity.webp",
-					"/start-course-page?course=cybersecurity-analyst");
-			cyber_security = c_repo.save(cyber_security);
-
-			Course IT = new Course("Information Technology", "/img/Information-Technology-Fundamentals-1.webp",
-					"/start-course-page?course=it-support-technician");
-			IT = c_repo.save(IT);
-
-			Course proj_management = new Course("Project Management", "/img/ProjectManager-00.webp",
-					"/start-course-page?course=project-manager");
-			proj_management = c_repo.save(proj_management);
-
-			Course web_dev = new Course("Web Development", "/img/Web_Development_Fundamentals-1-1.webp",
-					"/start-course-page?course=web-developer");
-			web_dev = c_repo.save(web_dev);*/
 
 
 
 
 		};
+
+	}
+
+	@PostConstruct
+	public void initGoals() {
+		// Check if goals already exist to avoid duplication
+		if (goalRepository.count() == 0) {
+			// Define and save the goals if they don't exist
+			goalRepository.saveAll(List.of(
+					new Goal("Complete one course in a day", "daily", 1, 100),
+					new Goal("Complete two courses in a week", "weekly", 2, 300),
+					new Goal("Complete three courses in a month", "monthly", 3, 500)
+			));
+		}
 	}
 }
 
