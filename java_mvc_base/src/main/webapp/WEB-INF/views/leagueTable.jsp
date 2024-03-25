@@ -21,7 +21,9 @@
 
             <h1 class="header">${league.tierName} league</h1>
             <h2 class="header">${league.daysLeft} ${league.daysLeft==1 ? ' day left' : ' days left'}</h2>
-
+            <div class="back-to-dashboard">
+                <a href="${pageContext.request.contextPath}/dashboard" class="dashboard-link">Go Back to Dashboard</a>
+            </div>
                     <div class="pseudo_table">
                         <div class="table_header">
                             <a class="posi">Position</a>

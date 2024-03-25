@@ -13,7 +13,26 @@
     object-fit: fill;
 }
 
+/* Back to Dashboard Link Styles */
+.back-to-dashboard {
+    align-self: start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-content: flex-start;
+    margin-left: 10vw;
+}
 
+
+.dashboard-link {
+    display: inline-block;
+    background-color: darkred; /* Primary button color */
+    color: #ffffff; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    text-decoration: none; /* Removes underline from links */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Make the text bold */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
 
 
 .header{
@@ -126,7 +145,7 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: 3px solid #007bff;
+    border: 3px solid #ffe600;
     margin-bottom: 15px;
     align-self: center;
     align-content: center;

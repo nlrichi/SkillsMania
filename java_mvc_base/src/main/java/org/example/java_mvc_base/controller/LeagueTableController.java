@@ -101,7 +101,7 @@ public class LeagueTableController {
                     model.addAttribute("situation", "bad");
                     model.addAttribute("logo", logo_path);
                     String message = "Bad luck! You finished " + pos + prefix + " and got" +
-                            " promoted to the " + current_user.getLeagueTier() + " league";
+                            " relegated to the " + current_user.getLeagueTier() + " league";
                     model.addAttribute("message", message);
                 }
                 return "notification";
