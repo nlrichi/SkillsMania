@@ -12,13 +12,15 @@ public class Avatar {
     private String name;
     private String description;
 
+    private Boolean isLeader; //If the user is the highest position in the league
+
     @OneToOne(mappedBy = "avatar")
     private User user;
 
     // Constructors, getters, and setters
     public Avatar() {}
 
-    public Avatar(String image, String name, String description) {
+    public Avatar(String image, String name, String description, Boolean isLeader) {
         this.image = image;
         this.name = name;
         this.description = description;

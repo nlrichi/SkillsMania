@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bb7f18b-7195-4b22-8003-9e4a79f8e17b" name="Changes" comment="Testing start/completion time">
+      <change afterPath="$PROJECT_DIR$/java_mvc_base/src/main/resources/static/images/Avatar1_Leader.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_mvc_base/src/main/resources/static/images/Avatar2_leader.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_mvc_base/src/main/resources/static/images/Avatar3_Leader.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java_mvc_base/src/main/resources/static/images/—Pngtree—vip golden crown icon member_5464031.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_02_2024_01_37__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_02_2024_01_37__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_02_2024_02_14__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_02_2024_02_14__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_01_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_01_57__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_18_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_02_2024_18_39__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_mvc_base/src/main/java/org/example/java_mvc_base/model/Avatar.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_mvc_base/src/main/java/org/example/java_mvc_base/model/Avatar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_mvc_base/src/main/java/org/example/java_mvc_base/model/LeagueTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_mvc_base/src/main/java/org/example/java_mvc_base/model/LeagueTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +55,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ReviewBranch" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,7 +100,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.JavaMvcBaseApplication.executor": "Run",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "IJ56-s2",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/raza_/Downloads/Software Engineering BSC/Year 2/Modules/CO2201 - Software Engineering Project (double module)/S2/Spring 1/FINAL SPRINT 1/java_mvc_base",
     "node.js.detected.package.eslint": "true",
@@ -110,6 +116,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\IJone\OneDrive\Desktop\group-16\java_mvc_base\src\main\resources\static\images" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="group-16dup1" />
