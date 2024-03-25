@@ -170,9 +170,10 @@ public class DurationController {
         //Add 50 coins to the user's total coins everytime they complete a course
         loggedInUser.setTotalCoins(loggedInUser.getTotalCoins() + 50);
         //Update the model to include total coins
-        model.addAttribute("totalCoins", loggedInUser.getTotalCoins());
+        model.addAttribute("totalCoin", loggedInUser.getTotalCoins());
         // save the users info in the repo
         userRepository.save(loggedInUser);
+        System.out.println("COINS GIVEN. NOW EQUALS " +loggedInUser.getTotalCoins());
 
 
         List<UserGoal> activeGoals = userGoalRepository.findByUserAndIsCompleted(user, false);

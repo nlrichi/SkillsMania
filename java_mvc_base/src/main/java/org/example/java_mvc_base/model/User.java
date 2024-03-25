@@ -55,11 +55,13 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserGoal> userGoals = new HashSet<>();
 
+    private int totalCoin = 0; //This adds a new field totalCoins to the user entity the default value is 0.
+
     public User() {}
 
 
 
-    private int totalCoins = 0; //This adds a new field totalCoins to the user entity the default value is 0.
+
 
     // Getters and setters for all fields
 
@@ -191,7 +193,7 @@ public class User {
         this.lastLoggedIn = Date.valueOf(LocalDate.now());
     }
 
-    public int getTotalCoins() {return totalCoins;}
+    public int getTotalCoins() {return totalCoin;}
 
-    public void setTotalCoins(int totalCoins) {this.totalCoins = totalCoins;}
+    public void setTotalCoins(int totalCoin) {this.totalCoin = totalCoin;}
 }
