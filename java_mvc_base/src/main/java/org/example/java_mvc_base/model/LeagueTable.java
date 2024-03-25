@@ -66,14 +66,10 @@ public class LeagueTable {
 
         members.sort(Comparator.comparingInt(User::getLeagueXP).reversed());
         //The user on top of the leaderboard is given a crown to highlight that they're in the lead
-        if(members.get(0).getAvatar().getImage().equals("/images/Avatar1.png")) {
-            members.get(0).getAvatar().setImage("/images/Avatar1_Leader.png");
-        }
-        else if (members.get(0).getAvatar().getImage().equals("/images/Avatar2.png")) {
-            members.get(0).getAvatar().setImage("/images/Avatar2_leader.png");
-        }
-        else if (members.get(0).getAvatar().getImage().equals("/images/Avatar3.png")) {
-            members.get(0).getAvatar().setImage("/images/Avatar3_Leader.png");
+        switch (members.get(0).getAvatar().getImage()) {
+            case "/images/Avatar1.png" -> members.get(0).getAvatar().setImage("/images/Avatar1_Leader.png");
+            case "/images/Avatar2.png" -> members.get(0).getAvatar().setImage("/images/Avatar2_leader.png");
+            case "/images/Avatar3.png" -> members.get(0).getAvatar().setImage("/images/Avatar3_Leader.png");
         }
         return members;
     }
