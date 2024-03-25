@@ -113,7 +113,7 @@ insert 'http://localhost:8080'.
 1. On the Dashboard, there is a button labeled Availabe Goals that directs to available goals on the menu.
 2. Here the user is able to choose from 3 predetermined goals and can also choose to either go back to the dashboard or look at current goals.
 3. Once a goal is selected, It is then assigned to the user and the user is redirected to a page that outlines their current goals.
-4. Once a Goal has been selected it cannot be selected again.
+4. Once a Goal has been selected it cannot be selected again, and the user is made aware of this via an error message.
 5. Once a Goal has been completed the user is then awarded the corresponding XP(Reward).
 
 ---------------------------------------
