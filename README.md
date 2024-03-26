@@ -133,5 +133,9 @@ insert 'http://localhost:8080'.
 2. Every time a user starts a new course the popularity count for the course increments by 1.
 3. When the filter button on the dashboard is clicked, the course cards are re-arranged such that the most popular ones are listed first.
 
+**Earn Badges**
+1. When a user first logins and selects "badges" from the dashboard they will be redirected to the userProfile page containing username and the badges they have earned 
+2. If the user has not completed any course available on the dashboard, they will have no badges
+3. When a user completes a course, a badge will be assigned to them which they can view on the userProfile page
 
 ---------------------------------------
