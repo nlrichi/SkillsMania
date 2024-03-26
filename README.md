@@ -122,4 +122,11 @@ insert 'http://localhost:8080'.
 3. The more courses they complete the more coins they are rewarded and can gather.
 4. This serves as an incentivite for users to complete more tasks.
 
+**Crown Reward System**
+1. This system indicates who is at the top of the leaderboard.
+2. If the user has selected an avatar it will appear on the leaderboard page.
+3. If the user has the highest amount of xp when compared to other users they will be at the top of the leaderboard and a crown will appear at the top of their avatar.
+4. If the user does not have an avatar, a crown will not appear. 
+
+
 ---------------------------------------
