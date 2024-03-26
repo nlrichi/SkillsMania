@@ -116,4 +116,10 @@ insert 'http://localhost:8080'.
 4. Once a Goal has been selected it cannot be selected again, and the user is made aware of this via an error message.
 5. Once a Goal has been completed the user is then awarded the corresponding XP(Reward).
 
+**Coin Reward System**
+1. When a user joins the system they start off with a total coin count of 0.
+2. By starting a course from the available course on the dashboard and successfully completing the task by returning to click the end course button they are rewarded 50 coins.
+3. The more courses they complete the coins the are rewarded and can gather.
+4. This serves as an incentivite for users to complete more tasks.
+
 ---------------------------------------
