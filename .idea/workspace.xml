@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="5bb7f18b-7195-4b22-8003-9e4a79f8e17b" name="Changes" comment="Testing start/completion time">
       <change afterPath="$PROJECT_DIR$/java_mvc_base/src/main/resources/static/images/Avatar1_Leader.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/java_mvc_base/src/main/resources/static/images/Avatar2_leader.jpg" afterDir="false" />
@@ -16,6 +17,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java_mvc_base/src/main/java/org/example/java_mvc_base/model/Avatar.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_mvc_base/src/main/java/org/example/java_mvc_base/model/Avatar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java_mvc_base/src/main/java/org/example/java_mvc_base/model/LeagueTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_mvc_base/src/main/java/org/example/java_mvc_base/model/LeagueTable.java" afterDir="false" />
+=======
+    <list default="true" id="5bb7f18b-7195-4b22-8003-9e4a79f8e17b" name="Changes" comment="Track and set user's total coins minor change">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/java_mvc_base.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/java_mvc_base.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_mvc_base/build/classes/java/main/org/example/java_mvc_base/JavaMvcBaseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/java_mvc_base/build/classes/java/main/org/example/java_mvc_base/JavaMvcBaseApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_mvc_base/build/classes/java/main/org/example/java_mvc_base/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/java_mvc_base/build/classes/java/main/org/example/java_mvc_base/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_mvc_base/build/classes/java/main/org/example/java_mvc_base/controller/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/java_mvc_base/build/classes/java/main/org/example/java_mvc_base/controller/WebController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_mvc_base/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_mvc_base/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+>>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,17 +43,36 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java_mvc_base" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <favorite-branches>
       <branch-storage>
         <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="coin_reward" />
+              </list>
+            </value>
+          </entry>
           <entry type="REMOTE">
             <value>
               <list>
@@ -100,14 +130,21 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.JavaMvcBaseApplication.executor": "Run",
     "dart.analysis.tool.window.visible": "false",
+<<<<<<< HEAD
     "git-widget-placeholder": "IJ56-s2",
+=======
+    "git-widget-placeholder": "coin__reward",
+>>>>>>> main
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/raza_/Downloads/Software Engineering BSC/Year 2/Modules/CO2201 - Software Engineering Project (double module)/S2/Spring 1/FINAL SPRINT 1/java_mvc_base",
+    "last_opened_file_path": "C:/Users/richa/OneDrive/Desktop/group-16/java_mvc_base",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -147,8 +184,9 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+        <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7" />
+        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-48ba4555" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -170,6 +208,9 @@
       <workItem from="1708393260438" duration="6989000" />
       <workItem from="1708436167405" duration="9024000" />
       <workItem from="1708514837126" duration="28000" />
+      <workItem from="1711303527707" duration="4264000" />
+      <workItem from="1711367443362" duration="14000" />
+      <workItem from="1711380888858" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary="test change 2">
       <option name="closed" value="true" />
@@ -211,7 +252,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708439605479</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Track and set user's total coins">
+      <option name="closed" value="true" />
+      <created>1711306371632</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711306371634</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Track and set user's total coins minor change">
+      <option name="closed" value="true" />
+      <created>1711306630725</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711306630725</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +332,8 @@
     <MESSAGE value="removed test.jsp wasn't being used" />
     <MESSAGE value="Final Start time and Completion time code: need to be tested and checked against D.O.D" />
     <MESSAGE value="Testing start/completion time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing start/completion time" />
+    <MESSAGE value="Track and set user's total coins" />
+    <MESSAGE value="Track and set user's total coins minor change" />
+    <option name="LAST_COMMIT_MESSAGE" value="Track and set user's total coins minor change" />
   </component>
 </project>

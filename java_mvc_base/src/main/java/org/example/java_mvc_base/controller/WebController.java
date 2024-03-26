@@ -65,6 +65,7 @@ public class WebController {
                 token.getPrincipal().getAttributes().get("given_name"));
         model.addAttribute("principal_email",
                 token.getPrincipal().getAttributes().get("preferred_username"));
+        model.addAttribute("totalCoin", loggedInUser.getTotalCoins());
 
         List<Course> courses = (List<Course>) c_repo.findAll();
         courses.sort(Comparator.comparingInt(Course::getPopularity));
