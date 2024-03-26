@@ -75,7 +75,7 @@ public class LeagueTable {
         }
         switch (members.get(0).getAvatar().getImage()) {
             case "/images/Avatar1.png" -> members.get(0).getAvatar().setImage("/images/Avatar1_Leader.png");
-            case "/images/Avatar2.png" -> members.get(0).getAvatar().setImage("/images/Avatar2_Leader.png");
+            case "/images/Avatar2.png" -> members.get(0).getAvatar().setImage("/images/Avatar2_Leader.jpg");
             case "/images/Avatar3.png" -> members.get(0).getAvatar().setImage("/images/Avatar3_Leader.png");
         }
         int count = 0;
