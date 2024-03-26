@@ -15,7 +15,17 @@ public class Goal {
     private int targetCount;
     private int xpReward; // XP to be rewarded upon goal completion
 
+    private boolean rewardsBadge; // determines if the goal rewards a badge or XP
+
     public Goal() {}
+
+    public boolean isRewardsBadge() {
+        return rewardsBadge;
+    }
+
+    public void setRewardsBadge(boolean rewardsBadge) {
+        this.rewardsBadge = rewardsBadge;
+    }
 
     public Goal(String description, String goalType, int targetCount, int xpReward) {
         this.description = description;
