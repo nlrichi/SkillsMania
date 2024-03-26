@@ -66,7 +66,6 @@ public class User {
     // Getters and setters for all fields
 
 
-
     public String getUsername() {
         return username;
     }

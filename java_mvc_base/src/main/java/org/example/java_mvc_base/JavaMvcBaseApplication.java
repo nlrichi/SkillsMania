@@ -60,6 +60,7 @@ public class JavaMvcBaseApplication {
 	@Bean
 	CommandLineRunner initDatabase() {
 		return args -> {
+			List<Avatar> avatars = new ArrayList<>();
 			// Check if an entry with this ID already exists to avoid duplicates
 			if (!avatarRepository.existsById(1L)) {
 				Avatar avatar = new Avatar();
@@ -68,6 +69,7 @@ public class JavaMvcBaseApplication {
 				avatar.setName("Avatar");
 				avatar.setDescription("Basic Avatar");
 				avatarRepository.save(avatar);
+				avatars.add(avatar);
 			}
 
 			if (!avatarRepository.existsById(2L)) {
@@ -77,6 +79,7 @@ public class JavaMvcBaseApplication {
 				avatar2.setName("Man");
 				avatar2.setDescription("Basic Male");
 				avatarRepository.save(avatar2);
+				avatars.add(avatar2);
 			}
 
 			if (!avatarRepository.existsById(3L)) {
@@ -86,6 +89,7 @@ public class JavaMvcBaseApplication {
 				avatar3.setName("Woman");
 				avatar3.setDescription("Basic Female");
 				avatarRepository.save(avatar3);
+				avatars.add(avatar3);
 			}
 
 			List<String> names = new ArrayList<>(Arrays.asList("Jamie", "Ezekiel", "Mohammed",
@@ -107,9 +111,10 @@ public class JavaMvcBaseApplication {
 			league3 = league_repo.save(league3);
 
 			int min = 1;  // Minimum value (inclusive)
-			int max = 1000;  // Maximum value (exclusive)
+			int max = 100;  // Maximum value (exclusive)
 
 			// Create a Random object
+
 
 
 			for (int i=0; i < 12; i++){
@@ -119,9 +124,11 @@ public class JavaMvcBaseApplication {
 
 				// Generate a random integer between min and max
 				int randomNumber = random.nextInt(max - min) + min;
+
 				dummy.setLeagueXP(randomNumber);
 				dummy.setLeagueId(league1.getLeagueId());
 				dummy = u_repo.save(dummy);
+
 
 				league1.getMembers().add(dummy);
 				league1 = league_repo.save(league1);
