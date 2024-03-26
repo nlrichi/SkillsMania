@@ -5,8 +5,7 @@ import jakarta.servlet.http.HttpSession;
 
 import org.example.java_mvc_base.model.Course;
 import org.example.java_mvc_base.model.User;
-import org.example.java_mvc_base.repo.CourseRepository;
-import org.example.java_mvc_base.repo.UserRepository;
+import org.example.java_mvc_base.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
@@ -23,7 +22,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 
 import org.springframework.stereotype.Controller;
-import org.example.java_mvc_base.repo.UserGoalRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,7 +48,8 @@ public class DurationController {
     @Autowired
     private CourseRepository courseRepo;
 
-
+    @Autowired
+    private BadgeRepository badgeRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -126,6 +125,7 @@ public class DurationController {
 
         String username = (String) token.getPrincipal().getAttributes().get("given_name");
         User user = userRepository.findUserByUsername(username);
+        String courseName = (String) session.getAttribute("course");
         if (user == null) {
             return "redirect:/error-page";
         }
@@ -162,17 +162,20 @@ public class DurationController {
             return "redirect:/error-page";
         }
         String completedCourse = (String) session.getAttribute("course");
-
         //raza comment
         Set<String> completedCourses = loggedInUser.getCompletedCourses();
         completedCourses.add((String) session.getAttribute("course"));
         loggedInUser.setCompletedCourses(completedCourses);
         //Add 50 coins to the user's total coins everytime they complete a course
         loggedInUser.setTotalCoins(loggedInUser.getTotalCoins() + 50);
+        //give a user a badge when they complete a course
+        loggedInUser.setBadge(badgeRepository.findById(1));
         // save the users info in the repo
-        userRepository.save(loggedInUser);
+        loggedInUser = userRepository.save(loggedInUser);
+
         //Update the model to include total coins
         model.addAttribute("totalCoin", loggedInUser.getTotalCoins());
+        model.addAttribute("userBadge", loggedInUser.getBadge());
         System.out.println("COINS GIVEN. NOW EQUALS " +loggedInUser.getTotalCoins());
 
 

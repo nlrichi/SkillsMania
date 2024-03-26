@@ -2,16 +2,12 @@ package org.example.java_mvc_base;
 
 
 import org.example.java_mvc_base.model.*;
-import org.example.java_mvc_base.repo.AvatarRepository;
-import org.example.java_mvc_base.repo.CourseRepository;
+import org.example.java_mvc_base.repo.*;
 import jakarta.annotation.PostConstruct;
 import org.example.java_mvc_base.model.Avatar;
 import org.example.java_mvc_base.model.Goal;
 import org.example.java_mvc_base.model.LeagueUpdateThread;
 import org.example.java_mvc_base.repo.AvatarRepository;
-import org.example.java_mvc_base.repo.GoalRepository;
-import org.example.java_mvc_base.repo.LeagueTableRepository;
-import org.example.java_mvc_base.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -42,8 +38,10 @@ public class JavaMvcBaseApplication {
 	private AvatarRepository avatarRepository;
 
 	@Autowired
-
 	private CourseRepository c_repo;
+
+	@Autowired
+	private BadgeRepository badgeRepository;
 
 	@Autowired
 	private GoalRepository goalRepository;
@@ -91,6 +89,13 @@ public class JavaMvcBaseApplication {
 				avatarRepository.save(avatar3);
 				avatars.add(avatar3);
 			}
+
+			Badge badge = new Badge();
+			badge.setId(1);
+			badge.setIconPath("/images/badge.jpeg");
+			badge.setName("Badge1");
+			badge.setDescription("Badge 1");
+			badge = badgeRepository.save(badge);
 
 			List<String> names = new ArrayList<>(Arrays.asList("Jamie", "Ezekiel", "Mohammed",
 					"Dele", "Ayo", "John", "T_boy", "Helen", "Aisha", "Sophia", "Tom", "Jibril",

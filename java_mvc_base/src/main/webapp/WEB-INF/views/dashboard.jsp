@@ -57,7 +57,9 @@
                     <div class="rightside">
                         <a href=http://localhost:8080/avatars><li>Your Avatar</li></a>
                         <a href="http://localhost:8080/logout"><li>Log out</li></a>
+                        <a href="http://localhost:8080/user/profile"><li>Badges</li></a>
                         <a href="http://localhost:8080/goals/list"><li>Available Goals</li></a>
+
                     </div>
                 </div>
             </ul>

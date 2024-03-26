@@ -57,13 +57,38 @@ public class User {
 
     private int totalCoin = 0; //This adds a new field totalCoins to the user entity the default value is 0.
 
+    @OneToOne
+    @JoinColumn(name = "badge_id")
+    private Badge badge;
+
     public User() {}
 
+    public Badge getBadge() {
+        return badge;
+    }
+
+    public void setBadge(Badge badge) {
+        this.badge = badge;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getTotalCoin() {
+        return totalCoin;
+    }
+
+    public void setTotalCoin(int totalCoin) {
+        this.totalCoin = totalCoin;
+    }
 
 
-
-
-    // Getters and setters for all fields
+// Getters and setters for all fields
 
 
     public String getUsername() {
