@@ -44,6 +44,7 @@ public class JavaMvcBaseApplication {
 	@Bean
 	CommandLineRunner initDatabase() {
 		return args -> {
+			List<Avatar> avatars = new ArrayList<>();
 			// Check if an entry with this ID already exists to avoid duplicates
 			if (!avatarRepository.existsById(1L)) {
 				Avatar avatar = new Avatar();
@@ -52,6 +53,7 @@ public class JavaMvcBaseApplication {
 				avatar.setName("Avatar");
 				avatar.setDescription("Basic Avatar");
 				avatarRepository.save(avatar);
+				avatars.add(avatar);
 			}
 
 			if (!avatarRepository.existsById(2L)) {
@@ -61,6 +63,7 @@ public class JavaMvcBaseApplication {
 				avatar2.setName("Man");
 				avatar2.setDescription("Basic Male");
 				avatarRepository.save(avatar2);
+				avatars.add(avatar2);
 			}
 
 			if (!avatarRepository.existsById(3L)) {
@@ -70,9 +73,10 @@ public class JavaMvcBaseApplication {
 				avatar3.setName("Woman");
 				avatar3.setDescription("Basic Female");
 				avatarRepository.save(avatar3);
+				avatars.add(avatar3);
 			}
 
-			/*List<String> names = new ArrayList<>(Arrays.asList("Jamie", "Ezekiel", "Mohammed",
+			List<String> names = new ArrayList<>(Arrays.asList("Jamie", "Ezekiel", "Mohammed",
 					"Dele", "Ayo", "John", "T_boy", "Helen", "Aisha", "Sophia", "Tom", "Jibril",
 					"Jeyda", "Erling", "Timothy", "Joyce", "Ethan", "Yusuf", "Lyla", "Gloria",
 					"Teddy", "Joshua", "Ashanti", "Claire", "Patrick", "Abdul", "Saira", "Kenny",
@@ -96,6 +100,7 @@ public class JavaMvcBaseApplication {
 			// Create a Random object
 
 
+
 			for (int i=0; i < 12; i++){
 				User dummy = new User();
 				dummy.setUsername(names.get(i));
@@ -103,9 +108,11 @@ public class JavaMvcBaseApplication {
 
 				// Generate a random integer between min and max
 				int randomNumber = random.nextInt(max - min) + min;
+
 				dummy.setLeagueXP(randomNumber);
 				dummy.setLeagueId(league1.getLeagueId());
 				dummy = u_repo.save(dummy);
+
 
 				league1.getMembers().add(dummy);
 				league1 = league_repo.save(league1);
@@ -139,7 +146,9 @@ public class JavaMvcBaseApplication {
 
 				league3.getMembers().add(dummy);
 				league3 = league_repo.save(league3);
-			}*/
+			}
+
+
 
 			/*Course data_analyst = new Course("Data Analyst", "/img/DataAnalyst-00.webp",
 					"/start-course-page?course=data-analyst");

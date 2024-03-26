@@ -66,10 +66,38 @@ public class LeagueTable {
 
         members.sort(Comparator.comparingInt(User::getLeagueXP).reversed());
         //The user on top of the leaderboard is given a crown to highlight that they're in the lead
+
+        if (members.size() == 0){
+            return members;
+        }
+        if (Objects.isNull(members.get(0).getAvatar())){
+            return members;
+        }
         switch (members.get(0).getAvatar().getImage()) {
             case "/images/Avatar1.png" -> members.get(0).getAvatar().setImage("/images/Avatar1_Leader.png");
-            case "/images/Avatar2.png" -> members.get(0).getAvatar().setImage("/images/Avatar2_leader.png");
+            case "/images/Avatar2.png" -> members.get(0).getAvatar().setImage("/images/Avatar2_Leader.png");
             case "/images/Avatar3.png" -> members.get(0).getAvatar().setImage("/images/Avatar3_Leader.png");
+        }
+        int count = 0;
+        for (User user: members){
+            if (count == 0){
+                count ++;
+                continue;
+            }
+
+            if (Objects.isNull(user.getAvatar())){
+                continue;
+            }
+
+            switch (user.getAvatar().getImage()){
+                case "/images/Avatar1_Leader.png":
+                    user.getAvatar().setImage("/images/Avatar1.png");
+                case "/images/Avatar2_Leader.png":
+                    user.getAvatar().setImage("/images/Avatar2.png");
+                case "/images/Avatar3_Leader.png":
+                    user.getAvatar().setImage("/images/Avatar3.png");
+            }
+            count ++;
         }
         return members;
     }
