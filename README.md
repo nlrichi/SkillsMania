@@ -128,5 +128,10 @@ insert 'http://localhost:8080'.
 3. If the user has the highest amount of xp when compared to other users they will be at the top of the leaderboard and a crown will appear at the top of their avatar.
 4. If the user does not have an avatar, a crown will not appear. 
 
+**Popular Courses Filter**
+1. This feature allows for filtering the course options based on popularity (How many users are taking or took the course)
+2. Every time a user starts a new course the popularity count for the course increments by 1.
+3. When the filter button on the dashboard is clicked, the course cards are re-arranged such that the most popular ones are listed first.
+
 
 ---------------------------------------
