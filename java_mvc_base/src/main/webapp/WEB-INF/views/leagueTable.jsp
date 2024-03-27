@@ -9,6 +9,8 @@
 </head>
     <body>
         <div class="bg_image2">
+
+<%--            determine the required logo based on the tier name--%>
             <c:if test="${league.tierName == 'Kings Intelligence'}">
                 <img class="league_logo" src="${pageContext.request.contextPath}/lt_assets/ki.png">
             </c:if>

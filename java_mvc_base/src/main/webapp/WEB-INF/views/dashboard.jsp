@@ -74,7 +74,7 @@
         <br>
 
 
-
+        <%--filter button for the course cards--%>
         <button onclick="filterBy('popular')" class="filter-btn">Filter by popularity</button>
 
         <!-- Course table and heading-->
@@ -82,6 +82,8 @@
             <h2 style="align-self: center">Available Courses</h2>
 
             <div class="course_cards">
+
+        <%--   create a course card for each course in the list of courses  --%>
                 <c:forEach items="${courses}" var="course">
                     <div class="polaroid">
                         <a href="${course.link}"><img class="CoursePic" src="${course.pic}"/></a>

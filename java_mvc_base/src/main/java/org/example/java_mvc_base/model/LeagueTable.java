@@ -89,6 +89,9 @@ public class LeagueTable {
                 continue;
             }
 
+            //correction mechanism for the crown system checking past leaders in a league who have dropped
+            // positions and still have crowns
+
             switch (user.getAvatar().getImage()){
                 case "/images/Avatar1_Leader.png":
                     user.getAvatar().setImage("/images/Avatar1.png");

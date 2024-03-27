@@ -116,7 +116,7 @@ public class LeagueUpdateThread extends Thread { //background thread to manage r
         while (running) {
             System.out.println("SLEEPING BEFORE CHECKING");
             try {
-                sleep(560000); //check for changes every  minute
+                sleep(60000); //check for changes every  minute
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

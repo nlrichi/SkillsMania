@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/lt_assets/notification.css">
     </head>
     <body>
+<%--      Give a different colour scheme based on whether the user was promoted or relegated--%>
         <div class="${situation}_bg_image">
             <img src="${pageContext.request.contextPath}/lt_assets/shine_${logo}.png"
                  width="250" height="250">
