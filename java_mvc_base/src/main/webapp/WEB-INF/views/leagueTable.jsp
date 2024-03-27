@@ -58,11 +58,6 @@
 
                         </c:forEach>
 
-        <%--                <div class="single_user_avatar">--%>
-        <%--                    <img class="user_model_image" src="${pageContext.request.contextPath}${currentAvatar.image}" alt="${currentAvatar.name}" />--%>
-        <%--                </div>--%>
-
-
                     </div>
 
         </div>

@@ -9,7 +9,6 @@
 <p>Click the end button when once you have completed the course.</p>
 <form action="/end-button" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-<%--    raza comment--%>
     <input type="hidden" name="course" value="${course}" />
     <input type="submit" value="End Course">
 </form>
