@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Start Course</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/start_n_end.css">
     <script type="text/javascript">
         function startCourse(event) {
             event.preventDefault(); // Prevent the form submitting traditionally
@@ -27,13 +28,20 @@
     </script>
 </head>
 <body>
-<h2>Start Course</h2>
-<p>Click the start button when you're ready to start.</p>
-<form id="courseForm" action="/start-button" method="post" onsubmit="startCourse(event);">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-    <input type="hidden" id="course" name="course" value="${param.course}" />
-    <input type="submit" value="Start Course">
-</form>
+<div class="content">
+    <h2>Start Course</h2>
+    <p>Click the start button when you're ready to start.</p>
+    <form  id="courseForm" action="/start-button" method="post" onsubmit="startCourse(event);">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <input type="hidden" id="course" name="course" value="${param.course}" />
+        <input class="btn" type="submit" value="Start Course">
+
+    </form>
+    <a href="${pageContext.request.contextPath}/dashboard">
+        <button class="btn">Back to dashboard</button>
+    </a>
+</div>
+
 </body>
 </html>
 
