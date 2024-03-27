@@ -8,9 +8,9 @@ SkillsMania is a Spring Boot Web Application, which gamifies elements of IBM Ski
 **Running & Setting Up Requirements**
 
 1. A stable internet connection
-2. Any IDE which can run MVC Spring Applications. We will be including instructions for IntelliJ Idea (latest version)
+2. Any IDE which can run MVC Spring Applications. We will be including instructions for IntelliJ Idea (We will be using 2023.2.2, but recommend the latest version.) You cannot use the community edition, as it does not have the capability to run Spring Boot MVC Applications.
 3. The installation of Git
-4. Installation of MySQL with the succesful running of a local server
+4. Installation of MySQL with the succesful running of a local server (we recommed using MySQL Workbench 8.0CE and later versions )
 
 **Running & Setting Up Instructions**
 
@@ -44,7 +44,7 @@ spring.datasource.password=password
 ```
 7. Run the application & head to http://localhost:8080/ where hopefully you will see the SkillsMania landing page.
 
-**_Steps didn't go correctly? Programme not running? Don't worry, it happens everyone at some point, just check the troubleshooting steps below which might help._**
+_**If the steps didn't go correctly or the programme is not running, below is some common issues with fixes.**_
 
 ------------------------------
 
@@ -137,5 +137,20 @@ insert 'http://localhost:8080'.
 1. When a user first logins and selects "badges" from the dashboard they will be redirected to the userProfile page containing username and the badges they have earned 
 2. If the user has not completed any course available on the dashboard, they will have no badges
 3. When a user completes a course, a badge will be assigned to them which they can view on the userProfile page
+
+**The Progress Bar**
+
+The progress bar has been created and positioned just underneath the main header menu on the application. The progress bar allows the user to have a visual reference of how much of the total courses they have completed.
+
+- There are 5 courses available to complete in SkillsMania. The progress bar displays the percentage of how many courses have been completed.
+- As there are 5 courses in total that can be completed, each course holds a weight of 20%.
+
+A new user will start with 0% completion on the progress bar, and it will be completely grayed out, as they have not completed any courses yet. A succesful completion of a course will lead to the green incrementing of the progress bar on the dashboard once refreshed.
+
+_If a user completes a single course 5 times, will they achieve 100% on the progress bar?_
+
+- The progress bar will only increment based on the first attempt on a course a user has done. This has been done to prevent any misuse and also provides a better user experience. If a user completes one course for example, 5 times, the progress bar will only increment once.
+- The progress bar has a maximum percentage of 100.
+
 
 ---------------------------------------
